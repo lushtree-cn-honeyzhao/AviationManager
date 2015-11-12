@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+        default-lazy-init="true">
+
+    <description>Quartz的本地Cron式执行任务配置</description>
+
+    <!-- 定义受环境影响易变的变量 -->
+    <context:property-placeholder location="classpath:appconfig.properties" />
+
+    <!-- Quartz本地Schduler -->
+    <bean id="localQuartzScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean"
+          lazy-init="false">
+        <!-- Triggers集成 -->
+        <property name="triggers">
+            <list>
+                <ref bean="testTaskTgr"/>
+            </list>
+        </property>
+        <!-- Quartz配置 -->
+        <property name="quartzProperties">
+            <props>
+                <prop key="org.quartz.threadPool.threadCount">${quartz.threadCount}</prop>
+            </props>
+        </property>
+        <!-- 启动时延期{秒}开始任务 -->
+        <property name="startupDelay" value="${quartz.startupDelay}"/>
+        <!-- 开启/关闭定时任务  true/false-->
+        <property name="autoStartup" value="${quartz.autoStartup}"/>
+
+    </bean>
+
+    <!-- Cron式Trigger触发器定义 -->
+    <bean id="testTaskTgr" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="testTaskCjd"/>
+        <!-- 0 0 0/1 * * ? 每小时0分0秒触发一次 -->
+        <property name="cronExpression" value="0 0/1 * * * ?"/>
+    </bean>
+
+
+    <!-- Cron quartzJobManager, 基于MethodInvokingJobDetailFactoryBean调用普通Spring Bean -->
+    <bean id="testTaskCjd" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <!-- 目标类 -->
+        <property name="targetObject" ref="quartzJobManager"/>
+        <!-- 目标方法 -->
+        <property name="targetMethod" value="testTask"/>
+        <!-- 同一任务在前一次执行未完成而Trigger时间又到时是否并发开始新的执行, 默认为true. -->
+        <property name="concurrent" value="false"/>
+    </bean>
+
+    <!-- 被Cron执行的普通Spring Bean -->
+    <bean id="quartzJobManager" class="com.youyun.timer.quartz.QuartzJobManager" />
+
+
+</beans>

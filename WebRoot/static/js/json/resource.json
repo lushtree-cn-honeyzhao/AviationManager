@@ -1,0 +1,146 @@
+[
+    {
+        "value": "",
+        "text": "默认"
+    },
+    {
+        "value": "icon-application",
+        "text": "application"
+    },
+    {
+        "value": "icon-user",
+        "text": "user"
+    },
+    {
+        "value": "icon-group",
+        "text": "group"
+    },
+    {
+        "value": "icon-vcard",
+        "text": "vcard"
+    },
+    {
+        "value": "icon-chart_bar",
+        "text": "chart_bar"
+    },
+    {
+        "value": "icon-chart_curve",
+        "text": "chart_curve"
+    },
+    {
+        "value": "icon-chart_line",
+        "text": "chart_line"
+    },
+    {
+        "value": "icon-chart_pie",
+        "text": "chart_pie"
+    },
+    {
+        "value": "icon-book",
+        "text": "book"
+    },
+    {
+        "value": "icon-email",
+        "text": "email"
+    },
+    {
+        "value": "icon-bug",
+        "text": "bug"
+    },
+    {
+        "value": "icon-folder",
+        "text": "folder"
+    },
+    {
+        "value": "icon-computer",
+        "text": "computer"
+    },
+    {
+        "value": "icon-monitor",
+        "text": "monitor"
+    },
+    {
+        "value": "icon-database",
+        "text": "database"
+    },
+    {
+        "value": "icon-disk",
+        "text": "disk"
+    },
+    {
+        "value": "icon-link",
+        "text": "folder"
+    },
+    {
+        "value": "icon-server",
+        "text": "server"
+    },
+    {
+        "value": "icon-map",
+        "text": "map"
+    },
+    {
+        "value": "icon-world",
+        "text": "world"
+    },
+    {
+        "value": "icon-search",
+        "text": "search"
+    },
+    {
+        "value": "icon-print",
+        "text": "print"
+    },
+    {
+        "value": "icon-help",
+        "text": "help"
+    },
+    {
+        "value": "icon-date",
+        "text": "date"
+    },
+    {
+        "value": "icon-calendar",
+        "text": "calendar"
+    },
+    {
+        "value": "icon-camera",
+        "text": "camera"
+    },
+    {
+        "value": "icon-film",
+        "text": "film"
+    },
+    {
+        "value": "icon-television",
+        "text": "television"
+    },
+    {
+        "value": "icon-ipod",
+        "text": "ipod"
+    },
+    {
+        "value": "icon-gears",
+        "text": "ipod"
+    },
+    {
+        "value": "icon-large-picture",
+        "text": "l-picture"
+    },
+    {
+        "value": "icon-large-clipart",
+        "text": "l-clipart"
+    },
+    {
+        "value": "icon-large-shapes",
+        "text": "l-shapes"
+    },
+    {
+        "value": "icon-large-smartart",
+        "text": "l-smartart"
+    },
+    {
+        "value": "icon-large-chart",
+        "text": "l-chart"
+    }
+]

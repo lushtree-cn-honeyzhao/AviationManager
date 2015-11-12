@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:p="http://www.springframework.org/schema/p"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:jee="http://www.springframework.org/schema/jee"
+        xmlns:tx="http://www.springframework.org/schema/tx"
+        xmlns:aop="http://www.springframework.org/schema/aop"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"
+        default-autowire="byName" default-lazy-init="false">
+
+    <description>spring基础配置</description>
+
+    <!-- 定义受环境影响易变的变量 -->
+    <context:property-placeholder ignore-unresolvable="true" location="classpath*:/appconfig.properties" />
+
+    <!-- 提供对@Required,@Autowired以及JSR 250'的@Resource注解的支持 -->
+    <context:annotation-config />
+
+    <!-- 使用annotation 自动注册bean,并保证@Required,@Autowired的属性被注入 -->
+    <context:component-scan base-package="com.youyun.common.orm,com.youyun.timer,com.youyun.core.task,com.youyun.modules.*.service" />
+
+    <!-- 1.jndi数据源 -->
+    <!-- <jee:jndi-lookup id="dataSource" jndi-name="${jndi.name}" /> -->
+
+    <!-- 2.DBCP数据源 数据源配置,使用应用内的DBCP数据库连接池 -->
+    <!-- <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driverClassName}" />
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+
+        <property name="initialSize" value="5" />
+        <property name="maxActive" value="50" />
+        <property name="maxIdle" value="200" />
+        <property name="maxWait" value="200" />
+        <property name="removeAbandoned" value="true"/>
+        <property name="testWhileIdle" value="false" />
+        <property name="testOnBorrow" value="true" />
+        <property name="testOnReturn" value="false" />
+        <property name="validationQuery" value="${jdbc.validationQuery}" />
+        <property name="defaultAutoCommit" value="false" />
+    </bean>
+    -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init"
+		destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driverClassName}"/>
+		<property name="url" value="${jdbc.url}"/>
+		<property name="username" value="${jdbc.username}"/>
+		<property name="password" value="${jdbc.password}"/>
+		
+		<property name="initialSize" value="5" />
+        <property name="maxActive" value="50" />
+        <property name="maxIdle" value="200" />
+        <property name="maxWait" value="200" />
+		
+		<property name="timeBetweenEvictionRunsMillis" value="60000" />
+		<property name="minEvictableIdleTimeMillis" value="300000" />
+		
+		<property name="validationQuery" value="SELECT 'x'" />  
+       	<property name="testWhileIdle" value="true" />  
+       	<property name="testOnBorrow" value="false" />  
+       	<property name="testOnReturn" value="false" />
+		<property name="maxOpenPreparedStatements" value="100" />		
+		<property name="removeAbandoned" value="true"/>
+		<property name="removeAbandonedTimeout" value="1800"/>
+		<property name="logAbandoned" value="true"/>	
+		
+       	<property name="poolPreparedStatements" value="true" />       	
+      	<property name="filters" value="stat" />  
+	</bean>
+
+    <!-- Hibernate切面拦截器 -->
+    <bean id="hibernateAspectInterceptor" class="com.youyun.core.HibernateAspectInterceptor" />
+
+    <!-- Hibernate配置 -->
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="entityInterceptor" ref="hibernateAspectInterceptor"/>
+        <property name="namingStrategy">
+            <bean class="org.hibernate.cfg.ImprovedNamingStrategy" />
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+                <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+                <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+                <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+                <prop key="hibernate.generate_statistics">${hibernate.generate_statistics}</prop>
+
+                <prop key="hibernate.cache.use_second_level_cache">${hibernate.cache.use_second_level_cache}</prop>
+                <prop key="hibernate.cache.use_query_cache">${hibernate.cache.use_query_cache}</prop>
+                <prop key="hibernate.cache.region.factory_class">${hibernate.cache.region.factory_class}</prop>
+                <prop key="net.sf.ehcache.configurationResourceName">${net.sf.ehcache.configurationResourceName}</prop>
+
+                <prop key="hibernate.jdbc.batch_size">0</prop>
+
+                <!--<prop key="hibernate.use_nationalized_character_data">false</prop>-->
+            </props>
+        </property>
+        <property name="packagesToScan">
+            <list>
+                <value>com.youyun.modules.*.entity</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- JDBC配置 -->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+	    <property name="dataSource">
+	    	<ref bean="dataSource"/>
+	    </property>
+    </bean>
+
+    <!-- 事务管理器配置, Hibernate单数据源事务 -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+
+    <!-- 1.使用annotation定义事务 -->
+    <!-- proxy-target-class ture:动态代理(需cglib类库的支持)  false:接口(Spring默认方式) -->
+    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+
+    <!-- proxy-target-class true:CGLIB代理 false:JDK代理-->
+    <aop:aspectj-autoproxy proxy-target-class="true" />
+
+
+    <!-- 2.声明式事务配置 -->
+    <aop:config proxy-target-class="true">
+        <aop:advisor pointcut="execution(* com.youyun.modules..*.service..*Manager.*(..))" advice-ref="txAdvice" />
+    </aop:config>
+
+    <!-- 通知  默认事务管理器：transaction-manager="transactionManager" -->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="get*" read-only="true" />
+            <tx:method name="load*" read-only="true" />
+            <tx:method name="find*" read-only="true" />
+            <tx:method name="query*" read-only="true" />
+            <tx:method name="search*" read-only="true" />
+            <tx:method name="is*" read-only="true" />
+            <tx:method name="count*" read-only="true" />
+            <tx:method name="*" propagation="REQUIRED" />
+        </tx:attributes>
+    </tx:advice>
+
+    <!--Spring上下文获取工具-->
+    <bean class="com.youyun.common.spring.SpringContextHolder"></bean>
+    <!--日志拦截切面-->
+    <!--<bean class="com.youyun.core.aop.LogAspect"></bean>-->
+    <!--安全日志拦截切面-->
+    <bean name="securityLogAspect" class="com.youyun.core.aop.SecurityLogAspect"></bean>
+
+    <!-- 配置 JSR303 Bean Validator 定义 -->
+    <!-- 以下 validator  ConversionService 在使用 mvc:annotation-driven 会 自动注册-->
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>
+        <!-- 如果不加默认到 使用classpath下的 ValidationMessages.properties -->
+        <property name="validationMessageSource" ref="messageSource"/>
+    </bean>
+
+    <!-- 国际化的消息资源文件（本系统中主要用于显示/错误消息定制） -->
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <!-- 在web环境中一定要定位到classpath 否则默认到当前web应用下找  -->
+                <value>classpath:messages</value>
+                <value>classpath:org/hibernate/validator/ValidationMessages</value>
+            </list>
+        </property>
+        <property name="useCodeAsDefaultMessage" value="false"/>
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="cacheSeconds" value="60"/>
+    </bean>
+
+</beans>

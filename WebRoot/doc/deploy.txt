@@ -1,0 +1,30 @@
+××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+                                                                    关于本AviationManager system基础系统部署说明 
+                                   --honey.zhao@aliyun.com
+××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+
+[目录]
+	/resource 配置文件目录
+	/test 单元测试目录
+	/core 共用核心源代码
+	/codegen 基于数据库表的代码生成器（不是很完善哦）
+	/src Service、Action等 应用源代码
+	/doc 一些帮助文档 以及核心包api文档
+	/WebRoot ...
+
+[环境要求] 
+	运行环境:JDK1.6 Tomcat6
+	数据库:MySQL5.1 、SQL Server2005、 Oracle10G (/resource/data/ 目录下有相关脚本 建议使用Navicat导入) dmp导入(表空间名:essh_data 临时表空间:essh_temp)
+
+[主要技术]
+    后台:
+    SpringMVC3.2.8
+	Spring3.2.8
+	Hibernate3.6.10
+	Jackson2.2.0
+	EhCache(+Spring3.1)
+	Hibernate validator4.3.1(后台校验框架,基于BO注解)
+    前台:
+    jQuery1.10.2
+    jQuery EasyUI1.3.6(前台ui组件)
+

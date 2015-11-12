@@ -1,0 +1,44 @@
+/**
+*  Copyright (c) 2014 http://www.lushapp.wang
+*
+*  Licensed under the Apache License, Version 2.0 (the "License");
+*/
+package $controllerPackage;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.youyun.common.orm.hibernate.EntityManager;
+import com.youyun.common.web.springmvc.BaseController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+import ${entityPackage}.${entityName};
+import ${servicePackage}.${entityName}Manager;
+
+/**
+ * $tableComment Controller
+ * @author honey.zhao@aliyun.com  
+ */
+@Controller
+@RequestMapping(value = "/${module}/${entityInstance}")
+public class ${entityName}Controller
+    extends BaseController<${entityName}> {
+
+    @Autowired
+    private ${entityName}Manager ${entityInstance}Manager;
+
+    @Override
+    public EntityManager<${entityName}, Long> getEntityManager() {
+        return ${entityInstance}Manager;
+    }
+
+    @RequestMapping(value = {""})
+    public String list() {
+        return "modules/${module}/${entityInstance}";
+    }
+
+    @RequestMapping(value = {"input"})
+    public String input() {
+        return "modules/${module}/${entityInstance}-input";
+    }
+
+}

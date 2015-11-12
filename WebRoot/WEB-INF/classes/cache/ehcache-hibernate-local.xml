@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="ehcache.xsd"  updateCheck="false" name="hibernateCache">
+
+	<diskStore path="java.io.tmpdir/ehcache-AviationManager-hibernate" />
+
+	<!--
+		DefaultCache setting.
+		Modify ehcache-safe.xml for timeToIdleSeconds,timeToLiveSecond,diskExpiryThreadIntervalSeconds
+		Use ehcache-safe.xml default for maxElementsInMemory,maxElementsOnDisk,overflowToDisk,eternal Use ehcache default
+		for memoryStoreEvictionPolicy,diskPersistent,.
+	-->
+	<defaultCache maxElementsInMemory="10000" overflowToDisk="true" eternal="false"
+		memoryStoreEvictionPolicy="LRU" maxElementsOnDisk="10000000" diskExpiryThreadIntervalSeconds="600"
+		timeToIdleSeconds="3600" timeToLiveSeconds="100000" diskPersistent="false" />
+    <!-- query cache设置为true将会创建两个缓存区域 -->
+    <!-- 一个用于保存查询结果集 -->
+	<cache name="org.hibernate.cache.internal.StandardQueryCache" maxElementsInMemory="5" eternal="false"
+	    timeToLiveSeconds="120" overflowToDisk="false"/>
+	<!-- 另一个用于保存最近查询的一系列表的时间戳 -->
+	<cache name="org.hibernate.cache.spi.UpdateTimestampsCache" maxElementsInMemory="5000"
+        eternal="true" overflowToDisk="true"/>
+
+	<!-- Special objects setting. -->
+	<!-- base -->
+	<cache name="com.youyun.modules.sys.entity.User" maxElementsInMemory="1000"
+		memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false"
+		overflowToDisk="true" maxElementsOnDisk="100000" />
+	<cache name="com.youyun.modules.sys.entity.User.roles"
+		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
+		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="1000000" />
+    <cache name="com.youyun.modules.sys.entity.User.resources"
+           maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
+           diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="1000000" />
+    <cache name="com.youyun.modules.sys.entity.User.organs"
+           maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
+           diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="1000000" />
+    <cache name="com.youyun.modules.sys.entity.User.posts"
+           maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
+           diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="1000000" />
+
+    <cache name="com.youyun.modules.sys.entity.Role" maxElementsInMemory="1000"
+           memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false"
+           overflowToDisk="true" maxElementsOnDisk="100000" />
+    <cache name="com.youyun.modules.sys.entity.Role.users"
+           maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
+           diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
+    <cache name="com.youyun.modules.sys.entity.Role.resources"
+           maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
+           diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
+
+
+	<cache name="com.youyun.modules.sys.entity.Resource" maxElementsInMemory="1000"
+		memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false"
+		overflowToDisk="true" maxElementsOnDisk="100000" />
+	<cache name="com.youyun.modules.sys.entity.Resource.roles" maxElementsInMemory="1000"
+		memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false"
+		overflowToDisk="true" maxElementsOnDisk="100000" />
+
+    <cache name="com.youyun.modules.sys.entity.Organ" maxElementsInMemory="1000"
+           memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false"
+           overflowToDisk="true" maxElementsOnDisk="100000" />
+    <cache name="com.youyun.modules.sys.entity.Organ.users" maxElementsInMemory="1000"
+           memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false"
+           overflowToDisk="true" maxElementsOnDisk="100000" />
+
+    <cache name="com.youyun.modules.sys.entity.Dictionary" maxElementsInMemory="1000"
+           memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false"
+           overflowToDisk="true" maxElementsOnDisk="100000" />
+    <cache name="com.youyun.modules.sys.entity.DictionaryType" maxElementsInMemory="1000"
+           memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false"
+           overflowToDisk="true" maxElementsOnDisk="100000" />
+
+    <cache name="com.youyun.modules.sys.entity.Post" maxElementsInMemory="1000"
+           memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false"
+           overflowToDisk="true" maxElementsOnDisk="100000" />
+    <cache name="com.youyun.modules.sys.entity.Post.users" maxElementsInMemory="1000"
+           memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false"
+           overflowToDisk="true" maxElementsOnDisk="100000" />
+
+
+	<!-- sys -->
+	<cache name="com.youyun.entity.sys.Dictionary"
+		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
+		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
+	<cache name="com.youyun.entity.sys.Dictionary.subDictionarys"
+		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
+		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
+    <cache name="com.youyun.entity.sys.DictionaryType"
+		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
+		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
+
+	<!-- oil manage -->
+	<!-- <cache name="com.youyun.modules.sys.entity.MainOilCard"
+		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
+		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
+	
+	<cache name="com.youyun.modules.sys.entity.OilCard"
+		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
+		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
+	
+	<cache name="com.youyun.modules.sys.entity.OilCard.vehicles"
+		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
+		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
+		
+	<cache name="com.youyun.modules.sys.entity.Vehicle"
+		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
+		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
+		
+	<cache name="com.youyun.modules.sys.entity.Vehicle.oilCards"
+		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
+		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
+		
+	<cache name="com.youyun.modules.sys.entity.OilCardDistribution"
+		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
+		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
+	
+	<cache name="com.youyun.modules.sys.entity.OilTrading"
+		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
+		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
+		
+	<cache name="com.youyun.modules.sys.entity.OilFuelInstallment"
+		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
+		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" /> -->
+		
+	<cache name="com.youyun.modules.sys.entity.Message"
+		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
+		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />	
+		
+	<cache name="com.youyun.modules.sys.entity.PrepaidRecords"
+		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
+		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />	
+		
+	<cache name="com.youyun.modules.sys.entity.AdvertInfo"
+		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
+		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
+		
+	<cache name="com.youyun.modules.sys.entity.AdvertSite"
+		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
+		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
+</ehcache>

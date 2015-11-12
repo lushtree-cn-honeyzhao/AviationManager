@@ -1,0 +1,31 @@
+http://www.microsoft.com/zh-cn/download/confirmation.aspx?id=13255
+---------------------------------------------------------------------------------------------
+
+注意：在安装此下载之前，必须先通过使用“控制面板”中的“添加/删除程序”，从你的计算机中卸载任何以前版本的 Access 数据库引擎。 
+
+若要安装此下载，请执行以下操作：
+通过单击“下载”按钮并将文件保存到硬盘上来下载文件。
+双击硬盘上的“AccessDatabaseEngine.exe”程序文件启动安装程序。
+按照屏幕上的说明完成安装。
+若要使用此下载，请执行以下操作：
+如果您是应用程序用户，请查阅您的应用程序文档，了解有关如何使用相应驱动程序的详细信息。
+如果您是使用 OLEDB 的应用程序开发人员，请将 ConnectionString 属性的 Provider 参数设置为“Microsoft.ACE.OLEDB.12.0”。 
+
+如果要连接到 Microsoft Office Excel 数据，请根据 Excel 文件类型添加相应的 OLEDB 连接字符串扩展属性： 
+
+文件类型（扩展名）                                             扩展属性
+---------------------------------------------------------------------------------------------
+Excel 97-2003 工作簿 (.xls)                                  “Excel 8.0”
+Excel 2007-2010 工作簿 (.xlsx)                             “Excel 12.0 Xml”
+启用宏的 Excel 2007-2010 工作簿 (.xlsm)     “Excel 12.0 宏”
+Excel 2007-2010 非 XML 二进制工作簿 (.xlsb)     “Excel 12.0”
+
+如果您是使用 ODBC 连接到 Microsoft Office Access 数据的应用程序开发人员，请将连接字符串设置为“Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=path to mdb/accdb file”
+如果您是使用 ODBC 连接到 Microsoft Office Excel 数据的应用程序开发人员，请将连接字符串设置为“Driver={Microsoft Excel Driver (*.xls, *.xlsx, *.xlsm, *.xlsb)};DBQ=path to xls/xlsx/xlsm/xlsb file”
+若要删除此下载，请执行以下操作： 
+若要删除下载文件本身，请删除文件 AccessDatabaseEngine.exe 
+在“开始”菜单上，指向“设置”，然后单击“控制面板”。
+双击 “添加/删除程序”。
+在当前安装的应用程序列表中，选择“Microsoft Access 2010 数据库引擎”，然后单击“删除”或“添加/删除”。如果出现对话框，请按照说明删除该程序。
+单击“是”或“确定”，以确认要删除该程序。
+---------------------------------------------------------------------------------------------
