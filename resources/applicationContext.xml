@@ -23,7 +23,7 @@
     <context:annotation-config />
 
     <!-- 使用annotation 自动注册bean,并保证@Required,@Autowired的属性被注入 -->
-    <context:component-scan base-package="com.youyun.common.orm,com.youyun.timer,com.youyun.core.task,com.youyun.modules.*.service" />
+    <context:component-scan base-package="com.lushapp.common.orm,com.lushapp.timer,com.lushapp.core.task,com.lushapp.modules.*.service" />
 
     <!-- 1.jndi数据源 -->
     <!-- <jee:jndi-lookup id="dataSource" jndi-name="${jndi.name}" /> -->
@@ -76,7 +76,7 @@
 	</bean>
 
     <!-- Hibernate切面拦截器 -->
-    <bean id="hibernateAspectInterceptor" class="com.youyun.core.HibernateAspectInterceptor" />
+    <bean id="hibernateAspectInterceptor" class="com.lushapp.core.HibernateAspectInterceptor" />
 
     <!-- Hibernate配置 -->
     <bean id="sessionFactory"
@@ -106,7 +106,7 @@
         </property>
         <property name="packagesToScan">
             <list>
-                <value>com.youyun.modules.*.entity</value>
+                <value>com.lushapp.modules.*.entity</value>
             </list>
         </property>
     </bean>
@@ -134,7 +134,7 @@
 
     <!-- 2.声明式事务配置 -->
     <aop:config proxy-target-class="true">
-        <aop:advisor pointcut="execution(* com.youyun.modules..*.service..*Manager.*(..))" advice-ref="txAdvice" />
+        <aop:advisor pointcut="execution(* com.lushapp.modules..*.service..*Manager.*(..))" advice-ref="txAdvice" />
     </aop:config>
 
     <!-- 通知  默认事务管理器：transaction-manager="transactionManager" -->
@@ -152,11 +152,11 @@
     </tx:advice>
 
     <!--Spring上下文获取工具-->
-    <bean class="com.youyun.common.spring.SpringContextHolder"></bean>
+    <bean class="com.lushapp.common.spring.SpringContextHolder"></bean>
     <!--日志拦截切面-->
-    <!--<bean class="com.youyun.core.aop.LogAspect"></bean>-->
+    <!--<bean class="com.lushappp.core.aop.LogAspect"></bean>-->
     <!--安全日志拦截切面-->
-    <bean name="securityLogAspect" class="com.youyun.core.aop.SecurityLogAspect"></bean>
+    <bean name="securityLogAspect" class="com.lushapp.core.aop.SecurityLogAspect"></bean>
 
     <!-- 配置 JSR303 Bean Validator 定义 -->
     <!-- 以下 validator  ConversionService 在使用 mvc:annotation-driven 会 自动注册-->

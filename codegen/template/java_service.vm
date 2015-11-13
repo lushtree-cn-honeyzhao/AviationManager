@@ -12,8 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ${entityPackage}.${entityName} ;
-import com.youyun.common.orm.hibernate.HibernateDao;
-import com.youyun.common.orm.hibernate.EntityManager;
+import com.lushapp.common.orm.hibernate.HibernateDao;
+import com.lushapp.common.orm.hibernate.EntityManager;
 /**
  * $tableComment service
  * @author honey.zhao@aliyun.com  

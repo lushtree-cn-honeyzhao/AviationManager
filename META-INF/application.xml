@@ -6,8 +6,8 @@
 
     <module id="AviationManager-Web">
         <web>
-            <web-uri>AviationManager_Web exploded.war</web-uri>
-            <context-root>AviationManagerWeb</context-root>
+            <web-uri>AviationManager.war</web-uri>
+            <context-root>AviationManager</context-root>
         </web>
     </module>
 </application>

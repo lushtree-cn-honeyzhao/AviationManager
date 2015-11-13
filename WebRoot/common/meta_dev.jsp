@@ -1,5 +1,5 @@
-<%@ page import="com.youyun.common.utils.browser.BrowserType" %>
-<%@ page import="com.youyun.common.utils.browser.BrowserUtils" %>
+<%@ page import="com.lushapp.common.utils.browser.BrowserType" %>
+<%@ page import="com.lushapp.common.utils.browser.BrowserUtils" %>
 <%
     String ctx = request.getContextPath();
     BrowserType browserType = BrowserUtils.getBrowserType(request);

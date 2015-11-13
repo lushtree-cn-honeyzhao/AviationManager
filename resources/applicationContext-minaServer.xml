@@ -15,18 +15,18 @@
     <context:property-placeholder location="classpath:appconfig.properties" />
 
     <!-- 这里是那个自定义的类 -->
-    <bean id="minaSomeServer" class="com.youyun.mina.server.service.MinaSomeServer">
+    <bean id="minaSomeServer" class="com.lushapp.mina.server.service.MinaSomeServer">
         <!--<property name="url" value="http://"/>-->
     </bean>
 
     <!-- 自定义的serverHandler -->
-    <bean id="serverHandler" class="com.youyun.mina.server.MinaServerHandler">
+    <bean id="serverHandler" class="com.lushapp.mina.server.MinaServerHandler">
         <property name="minaSomeServer" ref="minaSomeServer"/>
     </bean>
     <!-- 自定义的编码过滤器 -->
     <bean id="myCodecFilter" class="org.apache.mina.filter.codec.ProtocolCodecFilter">
         <constructor-arg>
-            <bean class="com.youyun.mina.server.MyCodecFactory"/>
+            <bean class="com.lushapp.mina.server.MyCodecFactory"/>
         </constructor-arg>
     </bean>
     <!-- 指定服务端地址和端口 -->
@@ -46,7 +46,7 @@
         <constructor-arg>
             <!--<bean class="org.apache.mina.filter.codec.textline.TextLineCodecFactory" /> -->
             <!-- 自定义的字符编码类 -->
-            <bean class="com.youyun.mina.server.MyCodecFactory"/>
+            <bean class="com.lushapp.mina.server.MyCodecFactory"/>
         </constructor-arg>
     </bean>
     <!-- 过滤器链 -->
@@ -76,7 +76,7 @@
 
     <!-- Mina客户端配置 -->
     <!--  -->
-    <bean id="minaCilentFactory" class="com.youyun.mina.cilent.MinaCilentFactory">
+    <bean id="minaCilentFactory" class="com.lushapp.mina.cilent.MinaCilentFactory">
         <property name="host" value="${mina.server.host}" />
         <property name="port" value="${mina.server.port}" />
         <property name="timeOut" value="${mina.server.timeout}" />

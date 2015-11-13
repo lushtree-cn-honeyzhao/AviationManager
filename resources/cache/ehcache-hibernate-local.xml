@@ -23,119 +23,119 @@
 
 	<!-- Special objects setting. -->
 	<!-- base -->
-	<cache name="com.youyun.modules.sys.entity.User" maxElementsInMemory="1000"
+	<cache name="com.lushapp.modules.sys.entity.User" maxElementsInMemory="1000"
 		memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false"
 		overflowToDisk="true" maxElementsOnDisk="100000" />
-	<cache name="com.youyun.modules.sys.entity.User.roles"
+	<cache name="com.lushapp.modules.sys.entity.User.roles"
 		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
 		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="1000000" />
-    <cache name="com.youyun.modules.sys.entity.User.resources"
+    <cache name="com.lushapp.modules.sys.entity.User.resources"
            maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
            diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="1000000" />
-    <cache name="com.youyun.modules.sys.entity.User.organs"
+    <cache name="com.lushapp.modules.sys.entity.User.organs"
            maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
            diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="1000000" />
-    <cache name="com.youyun.modules.sys.entity.User.posts"
+    <cache name="com.lushapp.modules.sys.entity.User.posts"
            maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
            diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="1000000" />
 
-    <cache name="com.youyun.modules.sys.entity.Role" maxElementsInMemory="1000"
+    <cache name="com.lushapp.modules.sys.entity.Role" maxElementsInMemory="1000"
            memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false"
            overflowToDisk="true" maxElementsOnDisk="100000" />
-    <cache name="com.youyun.modules.sys.entity.Role.users"
+    <cache name="com.lushapp.modules.sys.entity.Role.users"
            maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
            diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
-    <cache name="com.youyun.modules.sys.entity.Role.resources"
+    <cache name="com.lushapp.modules.sys.entity.Role.resources"
            maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
            diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
 
 
-	<cache name="com.youyun.modules.sys.entity.Resource" maxElementsInMemory="1000"
+	<cache name="com.lushapp.modules.sys.entity.Resource" maxElementsInMemory="1000"
 		memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false"
 		overflowToDisk="true" maxElementsOnDisk="100000" />
-	<cache name="com.youyun.modules.sys.entity.Resource.roles" maxElementsInMemory="1000"
+	<cache name="com.lushapp.modules.sys.entity.Resource.roles" maxElementsInMemory="1000"
 		memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false"
 		overflowToDisk="true" maxElementsOnDisk="100000" />
 
-    <cache name="com.youyun.modules.sys.entity.Organ" maxElementsInMemory="1000"
+    <cache name="com.lushapp.modules.sys.entity.Organ" maxElementsInMemory="1000"
            memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false"
            overflowToDisk="true" maxElementsOnDisk="100000" />
-    <cache name="com.youyun.modules.sys.entity.Organ.users" maxElementsInMemory="1000"
-           memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false"
-           overflowToDisk="true" maxElementsOnDisk="100000" />
-
-    <cache name="com.youyun.modules.sys.entity.Dictionary" maxElementsInMemory="1000"
-           memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false"
-           overflowToDisk="true" maxElementsOnDisk="100000" />
-    <cache name="com.youyun.modules.sys.entity.DictionaryType" maxElementsInMemory="1000"
+    <cache name="com.lushapp.modules.sys.entity.Organ.users" maxElementsInMemory="1000"
            memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false"
            overflowToDisk="true" maxElementsOnDisk="100000" />
 
-    <cache name="com.youyun.modules.sys.entity.Post" maxElementsInMemory="1000"
+    <cache name="com.lushapp.modules.sys.entity.Dictionary" maxElementsInMemory="1000"
            memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false"
            overflowToDisk="true" maxElementsOnDisk="100000" />
-    <cache name="com.youyun.modules.sys.entity.Post.users" maxElementsInMemory="1000"
+    <cache name="com.lushapp.modules.sys.entity.DictionaryType" maxElementsInMemory="1000"
+           memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false"
+           overflowToDisk="true" maxElementsOnDisk="100000" />
+
+    <cache name="com.lushapp.modules.sys.entity.Post" maxElementsInMemory="1000"
+           memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false"
+           overflowToDisk="true" maxElementsOnDisk="100000" />
+    <cache name="com.lushapp.modules.sys.entity.Post.users" maxElementsInMemory="1000"
            memoryStoreEvictionPolicy="LRU" eternal="true" diskPersistent="false"
            overflowToDisk="true" maxElementsOnDisk="100000" />
 
 
 	<!-- sys -->
-	<cache name="com.youyun.entity.sys.Dictionary"
+	<cache name="com.lushapp.entity.sys.Dictionary"
 		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
 		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
-	<cache name="com.youyun.entity.sys.Dictionary.subDictionarys"
+	<cache name="com.lushapp.entity.sys.Dictionary.subDictionarys"
 		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
 		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
-    <cache name="com.youyun.entity.sys.DictionaryType"
+    <cache name="com.lushapp.entity.sys.DictionaryType"
 		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
 		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
 
 	<!-- oil manage -->
-	<!-- <cache name="com.youyun.modules.sys.entity.MainOilCard"
+	<!-- <cache name="com.lushappp.modules.sys.entity.MainOilCard"
 		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
 		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
 	
-	<cache name="com.youyun.modules.sys.entity.OilCard"
+	<cache name="com.lushappp.modules.sys.entity.OilCard"
 		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
 		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
 	
-	<cache name="com.youyun.modules.sys.entity.OilCard.vehicles"
+	<cache name="com.lushappp.modules.sys.entity.OilCard.vehicles"
 		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
 		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
 		
-	<cache name="com.youyun.modules.sys.entity.Vehicle"
+	<cache name="com.lushappp.modules.sys.entity.Vehicle"
 		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
 		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
 		
-	<cache name="com.youyun.modules.sys.entity.Vehicle.oilCards"
+	<cache name="com.lushappp.modules.sys.entity.Vehicle.oilCards"
 		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
 		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
 		
-	<cache name="com.youyun.modules.sys.entity.OilCardDistribution"
+	<cache name="com.lushappp.modules.sys.entity.OilCardDistribution"
 		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
 		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
 	
-	<cache name="com.youyun.modules.sys.entity.OilTrading"
+	<cache name="com.lushappp.modules.sys.entity.OilTrading"
 		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
 		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
 		
-	<cache name="com.youyun.modules.sys.entity.OilFuelInstallment"
+	<cache name="com.lushappp.modules.sys.entity.OilFuelInstallment"
 		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
 		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" /> -->
 		
-	<cache name="com.youyun.modules.sys.entity.Message"
+	<cache name="com.lushapp.modules.sys.entity.Message"
 		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
 		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />	
 		
-	<cache name="com.youyun.modules.sys.entity.PrepaidRecords"
+	<cache name="com.lushapp.modules.sys.entity.PrepaidRecords"
 		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
 		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />	
 		
-	<cache name="com.youyun.modules.sys.entity.AdvertInfo"
+	<cache name="com.lushapp.modules.sys.entity.AdvertInfo"
 		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
 		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
 		
-	<cache name="com.youyun.modules.sys.entity.AdvertSite"
+	<cache name="com.lushapp.modules.sys.entity.AdvertSite"
 		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
 		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
 </ehcache>

@@ -49,7 +49,7 @@
 	</bean>
 	
 	<!-- Hibernate切面拦截器 -->
-	<bean id="hibernateAspectInterceptor" class="com.youyun.core.HibernateAspectInterceptor" />
+	<bean id="hibernateAspectInterceptor" class="com.lushapp.core.HibernateAspectInterceptor" />
     
 	<!-- Hibernate配置 -->
 	<bean id="sessionFactory"
@@ -72,7 +72,7 @@
 		</property>
 		<property name="packagesToScan">
 			<list>
-				<value>com.youyun.entity.*</value>
+				<value>com.lushapp.entity.*</value>
 			</list>
 		</property>
 	</bean>
@@ -123,8 +123,8 @@
 	
 	<!-- 2.声明式事务配置 -->
 	<aop:config proxy-target-class="true">
-		<aop:advisor pointcut="execution(* com.youyun.service..*Service.*(..))" advice-ref="txAdvice" />
-		<aop:advisor pointcut="execution(* com.youyun.service..*Manager.*(..))" advice-ref="txAdvice" />
+		<aop:advisor pointcut="execution(* com.lushapp.service..*Service.*(..))" advice-ref="txAdvice" />
+		<aop:advisor pointcut="execution(* com.lushapp.service..*Manager.*(..))" advice-ref="txAdvice" />
 	</aop:config>	
 	 
 	<!-- 通知  默认事务管理器：transaction-manager="transactionManager" -->

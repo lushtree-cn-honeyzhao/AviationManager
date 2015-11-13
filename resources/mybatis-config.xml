@@ -41,12 +41,12 @@
 	
 	<!-- 类型别名 -->
 	<typeAliases>
-		<typeAlias alias="Page" type="com.youyun.common.orm.Page" /><!--分页  -->
+		<typeAlias alias="Page" type="com.lushapp.common.orm.Page" /><!--分页  -->
 	</typeAliases>
 	
 	<!-- 插件配置 -->
 	<plugins>
-		<plugin interceptor="com.youyun.common.orm.mybatis.interceptor.PaginationInterceptor" />
+		<plugin interceptor="com.lushapp.common.orm.mybatis.interceptor.PaginationInterceptor" />
     </plugins>
 	
 </configuration>

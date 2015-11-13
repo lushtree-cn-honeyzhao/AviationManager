@@ -1,14 +1,10 @@
 package test;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.youyun.common.utils.MoneyFormat;
-import com.youyun.common.utils.mapper.JsonMapper;
+import com.lushapp.common.utils.mapper.JsonMapper;
 
 import test.eryansky.Person;
 
-import java.io.Serializable;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 /**

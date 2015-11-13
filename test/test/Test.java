@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.apache.commons.lang3.Validate;
 
-import com.youyun.common.utils.collections.Collections3;
+import com.lushapp.common.utils.collections.Collections3;
 
 /**
  *   测试.

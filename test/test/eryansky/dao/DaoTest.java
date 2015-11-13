@@ -4,12 +4,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
-import com.google.common.collect.Lists;
-import com.youyun.common.orm.jdbc.JdbcDao;
-import com.youyun.common.utils.io.PropertiesLoader;
-import com.youyun.common.utils.reflection.MyBeanUtils;
-import com.youyun.common.utils.reflection.ReflectionUtils;
-import com.youyun.modules.sys.service.RoleManager;
+import com.lushapp.common.orm.jdbc.JdbcDao;
+import com.lushapp.common.utils.io.PropertiesLoader;
+import com.lushapp.modules.sys.service.RoleManager;
 
 import org.junit.BeforeClass;
 import org.junit.Test;

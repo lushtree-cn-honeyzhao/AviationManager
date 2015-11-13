@@ -14,7 +14,7 @@
 	<context:property-placeholder ignore-unresolvable="true" location="classpath*:/appconfig.properties" />
 	
 	<!-- 使用Annotation自动注册Bean,只扫描@Controller -->
-	<context:component-scan base-package="com.youyun.modules.*.web" use-default-filters="false"><!-- base-package 如果多个，用“,”分隔 -->
+	<context:component-scan base-package="com.lushapp.modules.*.web" use-default-filters="false"><!-- base-package 如果多个，用“,”分隔 -->
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
 	
@@ -29,7 +29,7 @@
 			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
                 <property name="prettyPrint" value="true"/>
                 <property name="objectMapper">  
-                    <bean class="com.youyun.common.utils.mapper.JsonMapper"></bean>
+                    <bean class="com.lushapp.common.utils.mapper.JsonMapper"></bean>
                 </property>
                 <property name="supportedMediaTypes">
                     <list>
@@ -46,7 +46,7 @@
 				        </property>
 				        <property name="annotatedClasses">
 				            <list>
-				                <value>com.youyun.common.orm.entity.BaseEntity</value>
+				                <value>com.lushapp.common.orm.entity.BaseEntity</value>
 				            </list>
 				        </property>
 				    </bean>
@@ -55,7 +55,7 @@
 			</bean>
 		</mvc:message-converters>
 		<mvc:argument-resolvers>
-			<bean class="com.youyun.common.web.springmvc.SecureModelAttributeMethodArgumentResolver">
+			<bean class="com.lushapp.common.web.springmvc.SecureModelAttributeMethodArgumentResolver">
 				<constructor-arg value="false"/>
 			</bean>
 		</mvc:argument-resolvers>
@@ -91,7 +91,7 @@
 	<mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**" />
-            <bean class="com.youyun.core.AuthorityInterceptor" ><!-- 不需要权限验证的地址 -->
+            <bean class="com.lushapp.core.AuthorityInterceptor" ><!-- 不需要权限验证的地址 -->
                 <property name="excludeUrls">
                     <list>
                         <value>${web.view.ctx}/login/welcome</value><!-- 欢迎页面 -->
@@ -105,9 +105,9 @@
     <!-- proxy-target-class true:CGLIB代理 false:JDK代理-->
     <aop:aspectj-autoproxy proxy-target-class="true" />
 
-    <bean class="com.youyun.core.LogInterceptor" />
+    <bean class="com.lushapp.core.LogInterceptor" />
     <!--异常拦截器-->
-    <bean class="com.youyun.core.ExceptionInterceptor"/>
+    <bean class="com.lushapp.core.ExceptionInterceptor"/>
 
 	<!-- 上传文件拦截，设置最大上传文件大小   10M=10*1024*1024(B)=10485760 bytes -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">  

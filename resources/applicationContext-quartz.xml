@@ -53,7 +53,7 @@
     </bean>
 
     <!-- 被Cron执行的普通Spring Bean -->
-    <bean id="quartzJobManager" class="com.youyun.timer.quartz.QuartzJobManager" />
+    <bean id="quartzJobManager" class="com.lushapp.timer.quartz.QuartzJobManager" />
 
 
 </beans>

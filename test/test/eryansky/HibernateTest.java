@@ -5,14 +5,13 @@
  */
 package test.eryansky;
 
-import com.youyun.modules.sys.service.DictionaryManager;
-import com.youyun.modules.sys.service.DictionaryTypeManager;
+import com.lushapp.modules.sys.service.DictionaryManager;
+import com.lushapp.modules.sys.service.DictionaryTypeManager;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -11,7 +11,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import com.youyun.common.orm.entity.BaseEntity;
+import com.lushapp.common.orm.entity.BaseEntity;
 
 /**
  * $tableComment entity

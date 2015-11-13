@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="exploded-ear" name="AviationManager:javaEEApplication exploded">
-    <output-path>$PROJECT_DIR$/WebRoot/WEB-INF/classes/artifacts/AviationManager_javaEEApplication_exploded</output-path>
-    <root id="root">
-      <element id="javaee-facet-resources" facet="AviationManager/javaeeApplication/javaEEApplication" />
-      <element id="artifact" artifact-name="AviationManager:Web exploded" />
-    </root>
-  </artifact>
-</component>

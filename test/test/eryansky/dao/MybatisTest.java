@@ -6,11 +6,11 @@
 package test.eryansky.dao;
 
 import com.google.common.collect.Maps;
-import com.youyun.common.utils.mapper.JsonMapper;
-import com.youyun.common.utils.reflection.ReflectionUtils;
-import com.youyun.modules.sys.dao.MyBatisDictionaryDao;
-import com.youyun.modules.sys.entity.Dictionary;
-import com.youyun.modules.sys.service.DictionaryManager;
+import com.lushapp.common.utils.mapper.JsonMapper;
+import com.lushapp.common.utils.reflection.ReflectionUtils;
+import com.lushapp.modules.sys.dao.MyBatisDictionaryDao;
+import com.lushapp.modules.sys.entity.Dictionary;
+import com.lushapp.modules.sys.service.DictionaryManager;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,7 +19,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.Date;
-import java.util.List;
 import java.util.Map;
 
 /**

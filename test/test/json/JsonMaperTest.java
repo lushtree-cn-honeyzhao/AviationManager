@@ -6,9 +6,7 @@
 package test.json;
 
 import com.google.common.collect.Lists;
-import com.youyun.common.utils.mapper.JsonMapper;
-
-import test.eryansky.Person;
+import com.lushapp.common.utils.mapper.JsonMapper;
 
 import java.util.Date;
 import java.util.List;

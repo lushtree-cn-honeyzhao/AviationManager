@@ -7,8 +7,8 @@ package $controllerPackage;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.youyun.common.orm.hibernate.EntityManager;
-import com.youyun.common.web.springmvc.BaseController;
+import com.lushapp.common.orm.hibernate.EntityManager;
+import com.lushapp.common.web.springmvc.BaseController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import ${entityPackage}.${entityName};

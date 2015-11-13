@@ -15,7 +15,7 @@
     <task:scheduler id="scheduler" pool-size="10"  />
     <task:annotation-driven executor="executor" scheduler="scheduler" />
 
-    <!--<bean id="springJobManager" class="com.youyun.timer.spring.SpringJobManager"></bean>-->
+    <!--<bean id="springJobManager" class="com.lushappp.timer.spring.SpringJobManager"></bean>-->
     <!-- 方法上没有@Scheduled注解的配置方式 -->
     <!--<task:scheduled-tasks>-->
         <!--&lt;!&ndash; fixed-delay:延迟执行时间(即,循环周期执行)(毫秒ms) &ndash;&gt;-->

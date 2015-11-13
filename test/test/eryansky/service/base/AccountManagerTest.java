@@ -14,14 +14,14 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.google.common.collect.Maps;
-import com.youyun.common.orm.jdbc.JdbcDao;
-import com.youyun.common.utils.io.PropertiesLoader;
-import com.youyun.common.utils.mapper.JsonMapper;
-import com.youyun.modules.sys.entity.Resource;
-import com.youyun.modules.sys.entity.Role;
-import com.youyun.modules.sys.service.CommonManager;
-import com.youyun.modules.sys.service.ResourceManager;
-import com.youyun.modules.sys.service.RoleManager;
+import com.lushapp.common.orm.jdbc.JdbcDao;
+import com.lushapp.common.utils.io.PropertiesLoader;
+import com.lushapp.common.utils.mapper.JsonMapper;
+import com.lushapp.modules.sys.entity.Resource;
+import com.lushapp.modules.sys.entity.Role;
+import com.lushapp.modules.sys.service.CommonManager;
+import com.lushapp.modules.sys.service.ResourceManager;
+import com.lushapp.modules.sys.service.RoleManager;
 /**
  * Account单元测试
  * @author honey.zhao@aliyun.com  
