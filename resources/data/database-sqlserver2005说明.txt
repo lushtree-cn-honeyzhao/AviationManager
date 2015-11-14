@@ -34,7 +34,7 @@ File Encoding         : 65001
 Date: 2015-10-29 21:45:15
 */
 
-SET FOREIGN_KEY_CHECKS=0;
+w
 
 -- ----------------------------
 -- Table structure for t_sys_organ
@@ -100,10 +100,10 @@ CREATE TABLE `t_sys_resource` (
 -- Records of t_sys_resource
 -- ----------------------------
 INSERT INTO `t_sys_resource` VALUES ('1', null, null, '0', '2015-11-12 22:12:42', 'admin', '1', '', null, 'icon-application', '', '权限管理', '1', '0', '', null);
-INSERT INTO `t_sys_resource` VALUES ('2', null, null, '0', '2015-12-28 16:17:38', 'admin', '6', '', null, 'icon-folder', '', '资源管理', '2', '0', '/base/resource.action', '1');
-INSERT INTO `t_sys_resource` VALUES ('3', '2015-11-12 22:13:42', 'admin', '0', '2015-12-22 00:01:53', 'admin', '3', '', null, 'icon-group', '', '角色管理', '3', '0', '/base/role.action', '1');
-INSERT INTO `t_sys_resource` VALUES ('4', '2015-11-12 22:14:10', 'admin', '0', '2015-12-28 19:25:00', 'admin', '3', '', null, 'icon-group', '', '机构管理', '4', '0', '/base/organ.action', '1');
-INSERT INTO `t_sys_resource` VALUES ('5', '2015-11-12 22:14:28', 'admin', '0', '2015-12-28 19:19:03', 'admin', '1', '', null, 'icon-user', '', '用户管理', '5', '0', '/base/user.action', '1');
+INSERT INTO `t_sys_resource` VALUES ('2', null, null, '0', '2015-12-28 16:17:38', 'admin', '6', '', null, 'icon-folder', '', '资源管理', '2', '0', '/sys/resource.action', '1');
+INSERT INTO `t_sys_resource` VALUES ('3', '2015-11-12 22:13:42', 'admin', '0', '2015-12-22 00:01:53', 'admin', '3', '', null, 'icon-group', '', '角色管理', '3', '0', '/sys/role.action', '1');
+INSERT INTO `t_sys_resource` VALUES ('4', '2015-11-12 22:14:10', 'admin', '0', '2015-12-28 19:25:00', 'admin', '3', '', null, 'icon-group', '', '机构管理', '4', '0', '/sys/organ.action', '1');
+INSERT INTO `t_sys_resource` VALUES ('5', '2015-11-12 22:14:28', 'admin', '0', '2015-12-28 19:19:03', 'admin', '1', '', null, 'icon-user', '', '用户管理', '5', '0', '/sys/user.action', '1');
 INSERT INTO `t_sys_resource` VALUES ('6', '2015-11-12 22:14:54', 'admin', '0', '2015-11-12 22:15:18', 'admin', '1', '', null, 'icon-application', '', '系统配置', '6', '0', '', null);
 INSERT INTO `t_sys_resource` VALUES ('7', '2015-11-12 22:15:13', 'admin', '0', '2015-12-21 21:02:05', 'admin', '2', '', null, 'icon-book', '', '字典类型', '7', '0', '/sys/dictionary-type.action', '6');
 INSERT INTO `t_sys_resource` VALUES ('8', '2015-11-12 22:15:40', 'admin', '0', '2015-12-28 19:25:41', 'admin', '5', '', null, 'icon-ipod', '', '数据字典', '8', '0', '/sys/dictionary.action', '6');
