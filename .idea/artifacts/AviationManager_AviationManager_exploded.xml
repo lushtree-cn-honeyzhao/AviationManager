@@ -1,12 +1,11 @@
 <component name="ArtifactManager">
-  <artifact type="war" name="AviationManager">
-    <output-path>$PROJECT_DIR$/WebRoot/WEB-INF/classes/artifacts/AviationManager</output-path>
-    <root id="archive" name="AviationManager.war">
+  <artifact type="exploded-ear" name="AviationManager:AviationManager exploded">
+    <output-path>$PROJECT_DIR$/WebRoot/WEB-INF/classes/artifacts/AviationManager_AviationManager_exploded</output-path>
+    <root id="root">
       <element id="javaee-facet-resources" facet="AviationManager/javaeeApplication/AviationManager" />
+      <element id="javaee-facet-resources" facet="AviationManager/web/AviationManager" />
+      <element id="artifact" artifact-name="AviationManager" />
       <element id="directory" name="WEB-INF">
-        <element id="directory" name="classes">
-          <element id="module-output" name="AviationManager" />
-        </element>
         <element id="directory" name="lib">
           <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/mail.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/p6spy.jar" />
@@ -101,8 +100,10 @@
           <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/hibernate-commons-annotations-4.0.2.Final.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/jboss-transaction-api_1.1_spec-1.0.1.Final.jar" />
         </element>
+        <element id="directory" name="classes">
+          <element id="module-output" name="AviationManager" />
+        </element>
       </element>
-      <element id="javaee-facet-resources" facet="AviationManager/web/AviationManager" />
     </root>
   </artifact>
 </component>
