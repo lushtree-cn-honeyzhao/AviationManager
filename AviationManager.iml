@@ -59,6 +59,8 @@
         </NATIVE>
         <SOURCES>
           <root url="file://$MODULE_DIR$/WebRoot/WEB-INF/lib" />
+          <root url="jar://$USER_HOME$/.ideaLibSources/spring-orm-4.0.5.RELEASE-sources.jar!/" />
+          <root url="jar://$USER_HOME$/.ideaLibSources/spring-tx-4.0.5.RELEASE-sources.jar!/" />
         </SOURCES>
         <jarDirectory url="file://$MODULE_DIR$/WebRoot/WEB-INF/lib" recursive="false" />
         <jarDirectory url="file://$MODULE_DIR$/WebRoot/WEB-INF/lib" recursive="false" type="SOURCES" />
