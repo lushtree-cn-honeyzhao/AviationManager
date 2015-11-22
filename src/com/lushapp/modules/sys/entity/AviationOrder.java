@@ -7,31 +7,26 @@ package com.lushapp.modules.sys.entity;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.google.common.collect.Lists;
 import com.lushapp.common.orm.PropertyType;
 import com.lushapp.common.orm.annotation.Delete;
 import com.lushapp.common.orm.entity.BaseEntity;
-import com.lushapp.common.utils.ConvertUtils;
-import com.lushapp.common.utils.collections.Collections3;
-import com.lushapp.core.security.SecurityConstants;
 import com.lushapp.modules.sys._enum.FareMatch;
 import com.lushapp.modules.sys._enum.OrderStatus;
 import com.lushapp.modules.sys._enum.OrderType;
-import com.lushapp.modules.sys._enum.SexType;
-import com.sun.istack.internal.NotNull;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * 机票销售订单AviationOrder.
  * @author honey.zhao@aliyun.com  
- * @date 2015-11-10 上午12:28:04
+ * 2015-11-10 上午12:28:04
  *
  */
 @SuppressWarnings("serial")
@@ -225,6 +220,7 @@ public class AviationOrder
         this.orderstatus = orderstatus;
     }
 
+    @Column(name = "order_sn", length = 200,nullable = true)
     public String getOrderSn() {
         return orderSn;
     }
@@ -233,6 +229,7 @@ public class AviationOrder
         this.orderSn = orderSn;
     }
 
+    @Column(name = "order_type",nullable = true)
     public Integer getOrderType() {
         return orderType;
     }
@@ -241,6 +238,7 @@ public class AviationOrder
         this.orderType = orderType;
     }
 
+    @Column(name = "prn",nullable = true,columnDefinition = "text(2000)")
     public String getPrn() {
         return prn;
     }
@@ -248,7 +246,7 @@ public class AviationOrder
     public void setPrn(String prn) {
         this.prn = prn;
     }
-
+    @Column(name = "fare_match",nullable = true)
     public Integer getFareMatch() {
         return fareMatch;
     }
@@ -257,6 +255,7 @@ public class AviationOrder
         this.fareMatch = fareMatch;
     }
 
+    @Column(name = "custom",nullable = true)
     public String getCustom() {
         return custom;
     }
@@ -265,6 +264,7 @@ public class AviationOrder
         this.custom = custom;
     }
 
+    @Column(name = "supplier",nullable = true)
     public String getSupplier() {
         return supplier;
     }
@@ -273,6 +273,7 @@ public class AviationOrder
         this.supplier = supplier;
     }
 
+    @Column(name = "grown_face_amount",nullable = true)
     public Float getGrownFaceAmount() {
         return grownFaceAmount;
     }
@@ -281,6 +282,7 @@ public class AviationOrder
         this.grownFaceAmount = grownFaceAmount;
     }
 
+    @Column(name = "grown_inland_revenue",nullable = true)
     public Float getGrownInlandRevenue() {
         return grownInlandRevenue;
     }
@@ -289,6 +291,7 @@ public class AviationOrder
         this.grownInlandRevenue = grownInlandRevenue;
     }
 
+    @Column(name = "grown_q_tax",nullable = true)
     public Float getGrownQTax() {
         return grownQTax;
     }
@@ -297,6 +300,7 @@ public class AviationOrder
         this.grownQTax = grownQTax;
     }
 
+    @Column(name = "grown_agency_fee",nullable = true)
     public Float getGrownAgencyFee() {
         return grownAgencyFee;
     }
@@ -305,6 +309,7 @@ public class AviationOrder
         this.grownAgencyFee = grownAgencyFee;
     }
 
+    @Column(name = "grown_return_fee",nullable = true)
     public Float getGrownReturnFee() {
         return grownReturnFee;
     }
@@ -313,6 +318,7 @@ public class AviationOrder
         this.grownReturnFee = grownReturnFee;
     }
 
+    @Column(name = "child_face_amount",nullable = true)
     public Float getChildFaceAmount() {
         return childFaceAmount;
     }
@@ -321,6 +327,7 @@ public class AviationOrder
         this.childFaceAmount = childFaceAmount;
     }
 
+    @Column(name = "child_inland_revenue",nullable = true)
     public Float getChildInlandRevenue() {
         return childInlandRevenue;
     }
@@ -329,6 +336,7 @@ public class AviationOrder
         this.childInlandRevenue = childInlandRevenue;
     }
 
+    @Column(name = "child_q_tax",nullable = true)
     public Float getChildQTax() {
         return childQTax;
     }
@@ -337,6 +345,7 @@ public class AviationOrder
         this.childQTax = childQTax;
     }
 
+    @Column(name = "child_agency_fee",nullable = true)
     public Float getChildAgencyFee() {
         return childAgencyFee;
     }
@@ -345,6 +354,7 @@ public class AviationOrder
         this.childAgencyFee = childAgencyFee;
     }
 
+    @Column(name = "child_return_fee",nullable = true)
     public Float getChildReturnFee() {
         return childReturnFee;
     }
@@ -353,6 +363,7 @@ public class AviationOrder
         this.childReturnFee = childReturnFee;
     }
 
+    @Column(name = "handling_charges",nullable = true)
     public Float getHandlingCharges() {
         return handlingCharges;
     }
@@ -361,6 +372,7 @@ public class AviationOrder
         this.handlingCharges = handlingCharges;
     }
 
+    @Column(name = "custom_receivable",nullable = true)
     public Float getCustomReceivable() {
         return customReceivable;
     }
@@ -369,6 +381,7 @@ public class AviationOrder
         this.customReceivable = customReceivable;
     }
 
+    @Column(name = "custom_real_receivable",nullable = true)
     public Float getCustomRealReceivable() {
         return customRealReceivable;
     }
@@ -377,6 +390,7 @@ public class AviationOrder
         this.customRealReceivable = customRealReceivable;
     }
 
+    @Column(name = "platform_receivable",nullable = true)
     public Float getPlatformReceivable() {
         return platformReceivable;
     }
@@ -385,6 +399,7 @@ public class AviationOrder
         this.platformReceivable = platformReceivable;
     }
 
+    @Column(name = "platform_real_receivable",nullable = true)
     public Float getPlatformRealReceivable() {
         return platformRealReceivable;
     }
@@ -393,6 +408,7 @@ public class AviationOrder
         this.platformRealReceivable = platformRealReceivable;
     }
 
+    @Column(name = "receivable_type",nullable = true)
     public String getReceivableType() {
         return receivableType;
     }
@@ -401,6 +417,7 @@ public class AviationOrder
         this.receivableType = receivableType;
     }
 
+    @Column(name = "receivable_sn",nullable = true)
     public String getReceivableSn() {
         return receivableSn;
     }
@@ -409,6 +426,7 @@ public class AviationOrder
         this.receivableSn = receivableSn;
     }
 
+    @Column(name = "payment_type",nullable = true)
     public String getPaymentType() {
         return paymentType;
     }
@@ -417,6 +435,7 @@ public class AviationOrder
         this.paymentType = paymentType;
     }
 
+    @Column(name = "payment_sn",nullable = true)
     public String getPaymentSn() {
         return paymentSn;
     }
@@ -425,6 +444,7 @@ public class AviationOrder
         this.paymentSn = paymentSn;
     }
 
+    @Column(name = "big_sn",nullable = true)
     public String getBigSn() {
         return bigSn;
     }
@@ -433,6 +453,7 @@ public class AviationOrder
         this.bigSn = bigSn;
     }
 
+    @Column(name = "remarks",nullable = true)
     public String getRemarks() {
         return remarks;
     }
@@ -441,6 +462,8 @@ public class AviationOrder
         this.remarks = remarks;
     }
 
+
+    @Column(name = "rtkt_remarks",nullable = true)
     public String getRtktRemarks() {
         return rtktRemarks;
     }
@@ -449,6 +472,7 @@ public class AviationOrder
         this.rtktRemarks = rtktRemarks;
     }
 
+    @Column(name = "order_status",nullable = true)
     public Integer getOrderstatus() {
         return orderstatus;
     }
