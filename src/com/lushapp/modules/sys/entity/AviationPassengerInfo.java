@@ -21,7 +21,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 乘客信息AviationFlightInfo.
+ * 乘客信息AviationPassengerInfo
  * @author honey.zhao@aliyun.com  
  * 2015-11-10 上午12:28:04
  *
