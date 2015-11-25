@@ -22,6 +22,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 供应商AviationSuppliers
@@ -43,6 +44,102 @@ import java.io.Serializable;
 public class AviationSuppliers
         extends BaseEntity
         implements Serializable {
+
+
+        /**
+         * 姓名
+         */
+        private String userName;
+
+        /**
+         * 密码
+         */
+        private String password;
+
+        /**
+         * 确认密码
+         */
+        private String confirmPassword;
+
+        /**
+         * 供应商类型
+         */
+        private String suppliersType;
+
+        /**
+         * 供应商名称
+         */
+        private  String suppliersName;
+
+        /**
+         * 办公编号
+         */
+        private  String officeSn;
+
+        /**
+         * 是否有效
+         */
+        private boolean effected;
+
+        /**
+         * 是否允许 自动支付
+         */
+        private Integer autoPaying;
+
+        /**
+         * 工作时间
+         */
+        private Date workTime;
+
+        /**
+         * 联系人
+         */
+        private String contactPerson;
+
+        /**
+         * 手机号
+         */
+        private  String mobile;
+
+        /**
+         * 传真
+         */
+        private String faxNumber;
+
+        /**
+         * 公司名称
+         */
+        private String companyName;
+
+        /**
+         * 公司地址
+         */
+        private  String companAaddress;
+
+        /**
+         * QQ
+         */
+        private String qq;
+
+        /**
+         * 出票评级
+         */
+        private  String ticketRate;
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
