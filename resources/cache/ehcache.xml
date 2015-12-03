@@ -108,58 +108,51 @@
            timeToLiveSeconds="86400"
            memoryStoreEvictionPolicy="LRU" />
     
-    <!-- 油卡管理 -->
-    <!-- 附属油卡    所有分组 每24小时 -->
-    <cache name="oil_card_all_cache" eternal="false"
+    <!-- 机票订单销售管理 -->
+    <!-- 机票订单    所有分组 每24小时 -->
+    <cache name="aviation_order_all_cache" eternal="false"
            maxElementsInMemory="100"
            overflowToDisk="false"
            diskPersistent="false"
            timeToIdleSeconds="0"
            timeToLiveSeconds="86400"
            memoryStoreEvictionPolicy="LRU" />
-    <!-- 车辆      所有分组 每24小时 -->
-    <cache name="vehicle_all_cache" eternal="false"
+    <!--  航班信息 AviationFlightInfo 所有分组 每24小时  -->
+    <cache name="aviation_flight_info_all_cache" eternal="false"
            maxElementsInMemory="100"
            overflowToDisk="false"
            diskPersistent="false"
            timeToIdleSeconds="0"
            timeToLiveSeconds="86400"
            memoryStoreEvictionPolicy="LRU" />
-    <!-- 油卡分配      所有分组 每24小时 -->
-    <cache name="oil_card_distribution_all_cache" eternal="false"
+    <!--  乘客信息 AviationPassengerInfo-->
+    <cache name="aviation_passenger_info_all_cache" eternal="false"
            maxElementsInMemory="100"
            overflowToDisk="false"
            diskPersistent="false"
            timeToIdleSeconds="0"
            timeToLiveSeconds="86400"
            memoryStoreEvictionPolicy="LRU" />
-    <!-- 油卡交易      所有分组 每24小时 -->
-    <cache name="oil_trading_detail_all_cache" eternal="false"
+
+    <!--  供应商 AviationSuppliers-->
+    <cache name="aviation_suppliers_all_cache" eternal="false"
            maxElementsInMemory="100"
            overflowToDisk="false"
            diskPersistent="false"
            timeToIdleSeconds="0"
            timeToLiveSeconds="86400"
            memoryStoreEvictionPolicy="LRU" />
-                 
-    <!-- 充值记录      所有分组 每24小时 -->
-    <cache name="prepaid_records_all_cache" eternal="false"
+
+
+    <!--  采购商 AviationBuyers-->
+    <cache name="aviation_buyers_all_cache" eternal="false"
            maxElementsInMemory="100"
            overflowToDisk="false"
            diskPersistent="false"
            timeToIdleSeconds="0"
            timeToLiveSeconds="86400"
-           memoryStoreEvictionPolicy="LRU" /> 
-           
-    <!-- 油卡分期      所有分组 每24小时 -->
-    <cache name="oil_fuel_installment_all_cache" eternal="false"
-           maxElementsInMemory="100"
-           overflowToDisk="false"
-           diskPersistent="false"
-           timeToIdleSeconds="0"
-           timeToLiveSeconds="86400"
-           memoryStoreEvictionPolicy="LRU" />       
-    
+           memoryStoreEvictionPolicy="LRU" />
+
     <!-- 通知管理      所有分组 每24小时  --> 
     <cache name="message_all_cache" eternal="false"
            maxElementsInMemory="100"
