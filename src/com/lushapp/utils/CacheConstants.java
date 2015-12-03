@@ -59,45 +59,39 @@ public class CacheConstants {
     public static final String DICTIONARY_TYPE_GROUPS_CACHE = "dictionaryType_groups_cache";
 
     /**
-     * ===================================================
-     * 油品管理
-     */
-    /**
-     * 油卡附属卡
-     */
-    public static final String OIL_CARD_ALL_CACHE = "oil_card_all_cache";
-    
-    /**
-     * 车辆
-     */
-    public static final String VEHICLE_ALL_CACHE = "vehicle_all_cache";
-    
-    /**
-     * 油卡分配
-     */
-    public static final String OIL_CARD_DISTRIBUTION_ALL_CACHE = "oil_card_distribution_all_cache";
-	
-    /**
-     * 加油明细
-     */
-    public static final String OIL_TRADING_DETAIL_ALL_CACHE = "oil_trading_detail_all_cache";
-    
-    
-    /**
-     * 充值明细
-     */
-    public static final String PREPAID_RECORDS_ALL_CACHE = "prepaid_records_all_cache";
-    
-    
-    /**
-     * 燃油分期	
-     */
-    
-    public static final String OIL_FUEL_INSTALLMENT_ALL_CACHE = "oil_fuel_installment_all_cache";
-    
-    /**
      * 通知管理
      */
     public static final String MESSAGE_ALL_CACHE = "message_all_cache";
+
+    /**
+     * ===================================================
+     * 销售订单管理
+     */
+    /**
+     * 机票订单
+     */
+    public static final String AVIATION_ORDER_ALL_CACHE = "aviation_order_all_cache";
+    
+    /**
+     * 航班信息
+     */
+    public static final String AVIATION_FLIGHT_INFO_ALL_CACHE = "aviation_flight_info_all_cache";
+    
+    /**
+     * 乘客信息
+     */
+    public static final String AVIATION_PASSENGER_INFO_ALL_CACHE = "aviation_passenger_info_all_cache";
+	
+    /**
+     * 供应商信息
+     */
+    public static final String AVIATION_SUPPLIERS_ALL_CACHEE = "aviation_suppliers_all_cache";
+    
+    
+    /**
+     * 采购商信息
+     */
+    public static final String AVIATION_BUYERS_ALL_CACHE = "aviation_buyers_all_cache";
+    
     
 }
