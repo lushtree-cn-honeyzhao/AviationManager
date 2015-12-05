@@ -59,6 +59,11 @@ public class CacheConstants {
     public static final String DICTIONARY_TYPE_GROUPS_CACHE = "dictionaryType_groups_cache";
 
     /**
+     * 充值明细
+     */
+    public static final String PREPAID_RECORDS_ALL_CACHE = "prepaid_records_all_cache";
+
+    /**
      * 通知管理
      */
     public static final String MESSAGE_ALL_CACHE = "message_all_cache";
