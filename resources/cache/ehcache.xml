@@ -117,6 +117,15 @@
            timeToLiveSeconds="86400"
            memoryStoreEvictionPolicy="LRU" />
 
+    <!-- 充值记录      所有分组 每24小时 -->
+    <cache name="prepaid_records_all_cache" eternal="false"
+           maxElementsInMemory="100"
+           overflowToDisk="false"
+           diskPersistent="false"
+           timeToIdleSeconds="0"
+           timeToLiveSeconds="86400"
+           memoryStoreEvictionPolicy="LRU" />
+
     <!-- 机票订单销售管理 -->
     <!-- 机票订单    所有分组 每24小时 -->
     <cache name="aviation_order_all_cache" eternal="false"
