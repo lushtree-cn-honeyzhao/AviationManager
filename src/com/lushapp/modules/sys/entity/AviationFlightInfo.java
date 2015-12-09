@@ -59,7 +59,7 @@ public class AviationFlightInfo
     /**
      * 出发地
      */
-    private String starting;
+    private String startaddress;
 
     /**
      * 到达地
@@ -101,11 +101,11 @@ public class AviationFlightInfo
     public AviationFlightInfo() {
     }
 
-    public AviationFlightInfo(AviationOrder aviationOrder, String carrier, String number, String starting, String arrival, String positions, Date startTime, Date endTime, String startAirportTerminal, String arrivalAirporTterminal, boolean deleted) {
+    public AviationFlightInfo(AviationOrder aviationOrder, String carrier, String number, String startaddress, String arrival, String positions, Date startTime, Date endTime, String startAirportTerminal, String arrivalAirporTterminal, boolean deleted) {
         this.aviationOrder = aviationOrder;
         this.carrier = carrier;
         this.number = number;
-        this.starting = starting;
+        this.startaddress = startaddress;
         this.arrival = arrival;
         this.positions = positions;
         this.startTime = startTime;
@@ -147,13 +147,13 @@ public class AviationFlightInfo
         this.number = number;
     }
 
-    @Column(name = "starting",nullable = true,length = 45)
-    public String getStarting() {
-        return starting;
+    @Column(name = "startaddress",nullable = true,length = 45)
+    public String getStartaddress() {
+        return startaddress;
     }
 
-    public void setStarting(String starting) {
-        this.starting = starting;
+    public void setStartaddress(String startaddress) {
+        this.startaddress = startaddress;
     }
 
     @Column(name = "arrival",nullable = true,length = 45)
