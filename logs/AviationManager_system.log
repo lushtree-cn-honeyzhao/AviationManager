@@ -1,0 +1,1 @@
+2014-09-22 11:26:50 [main] WARN  [org.hibernate.id.UUIDHexGenerator] - HHH000409: Using com.lushapp.common.orm.entity.UIDGenerator which does not generate IETF RFC 4122 compliant UUID values; consider using org.hibernate.id.UUIDGenerator instead

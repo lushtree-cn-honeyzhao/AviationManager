@@ -56,7 +56,6 @@
 		
 		<property name="initialSize" value="5" />
         <property name="maxActive" value="50" />
-        <property name="maxIdle" value="200" />
         <property name="maxWait" value="200" />
 		
 		<property name="timeBetweenEvictionRunsMillis" value="60000" />
