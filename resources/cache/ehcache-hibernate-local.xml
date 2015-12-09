@@ -90,39 +90,6 @@
 		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
 		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
 
-	<!-- oil manage -->
-	<!-- <cache name="com.lushappp.modules.sys.entity.MainOilCard"
-		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
-		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
-	
-	<cache name="com.lushappp.modules.sys.entity.OilCard"
-		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
-		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
-	
-	<cache name="com.lushappp.modules.sys.entity.OilCard.vehicles"
-		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
-		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
-		
-	<cache name="com.lushappp.modules.sys.entity.Vehicle"
-		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
-		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
-		
-	<cache name="com.lushappp.modules.sys.entity.Vehicle.oilCards"
-		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
-		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
-		
-	<cache name="com.lushappp.modules.sys.entity.OilCardDistribution"
-		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
-		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
-	
-	<cache name="com.lushappp.modules.sys.entity.OilTrading"
-		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
-		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
-		
-	<cache name="com.lushappp.modules.sys.entity.OilFuelInstallment"
-		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
-		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" /> -->
-		
 	<cache name="com.lushapp.modules.sys.entity.Message"
 		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
 		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />	
@@ -138,4 +105,34 @@
 	<cache name="com.lushapp.modules.sys.entity.AdvertSite"
 		maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
 		diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
+
+    <cache name="com.lushapp.modules.sys.entity.PayModel"
+           maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
+           diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
+
+    <cache name="com.lushapp.modules.sys.entity.ValidateLog"
+           maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
+           diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
+
+	<!-- aviation manager-->
+    <cache name="com.lushapp.modules.sys.entity.AviationOrder"
+           maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
+           diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
+
+    <cache name="com.lushapp.modules.sys.entity.AviationPassengerInfo"
+           maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
+           diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
+
+    <cache name="com.lushapp.modules.sys.entity.AviationFlightInfo"
+           maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
+           diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
+
+    <cache name="com.lushapp.modules.sys.entity.AviationBuyers"
+           maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
+           diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
+
+    <cache name="com.lushapp.modules.sys.entity.AviationSuppliers"
+           maxElementsInMemory="1000" memoryStoreEvictionPolicy="LRU" eternal="true"
+           diskPersistent="false" overflowToDisk="true" maxElementsOnDisk="100000" />
+
 </ehcache>
