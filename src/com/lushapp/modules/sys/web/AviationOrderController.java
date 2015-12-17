@@ -65,5 +65,44 @@ public class AviationOrderController extends BaseController<AviationOrder,Long> 
         return "modules/sys/user";
     }
 
+    /**
+     * @param user
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = {"input"})
+    public String input(@ModelAttribute("model") User user) throws Exception {
+        return "modules/sys/aviationorder-input";
+    }
+
+
+    @RequestMapping(value = {"_remove"})
+    @ResponseBody
+    @Override
+    public Result remove(@RequestParam(value = "ids", required = false) List<Long> ids) {
+        Result result;
+        aviationOrderManager.deleteByIds(ids);
+        result = Result.successResult();
+        logger.debug(result.toString());
+        return result;
+    }
+
+    /**
+     * 保存.
+     */
+    @RequestMapping(value = {"save"})
+    @ResponseBody
+    public Result save(@ModelAttribute("model") AviationOrder aviationOrder) {
+        Result result = null;
+        //-------校验-begin-----
+
+
+        //-------校验-end-------
+        aviationOrderManager.saveEntity(aviationOrder);
+        result = Result.successResult();
+        logger.debug(result.toString());
+        return result;
+    }
+
 
 }
