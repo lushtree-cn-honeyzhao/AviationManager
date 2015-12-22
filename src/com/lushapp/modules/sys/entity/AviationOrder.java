@@ -18,10 +18,10 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 机票销售订单AviationOrder.
@@ -179,6 +179,19 @@ public class AviationOrder
      */
     private Integer orderstatus = OrderStatus.undetermined_ticket.getValue();
 
+
+    /**
+     * 机票航班信息
+     */
+
+    private Set<AviationFlightInfo> aviationFlightInfos = new HashSet<AviationFlightInfo>();
+
+    /**
+     * 乘客信息
+     */
+    private Set<AviationPassengerInfo> aviationPassengerInfos = new HashSet<AviationPassengerInfo>();
+
+
     /**
      * ------------get()and set() methods ------------------
      */
@@ -188,7 +201,7 @@ public class AviationOrder
 
     }
 
-    public AviationOrder(String orderSn, Integer orderType, String prn, Integer fareMatch, String custom, String supplier, Float grownFaceAmount, Float grownInlandRevenue, Float grownQTax, Float grownAgencyFee, Float grownReturnFee, Float childFaceAmount, Float childInlandRevenue, Float childQTax, Float childAgencyFee, Float childReturnFee, Float handlingCharges, Float customReceivable, Float customRealReceivable, Float platformReceivable, Float platformRealReceivable, String receivableType, String receivableSn, String paymentType, String paymentSn, String bigSn, String remarks, String rtktRemarks, Integer orderstatus) {
+    public AviationOrder(String orderSn, Integer orderType, String prn, Integer fareMatch, String custom, String supplier, Float grownFaceAmount, Float grownInlandRevenue, Float grownQTax, Float grownAgencyFee, Float grownReturnFee, Float childFaceAmount, Float childInlandRevenue, Float childQTax, Float childAgencyFee, Float childReturnFee, Float handlingCharges, Float customReceivable, Float customRealReceivable, Float platformReceivable, Float platformRealReceivable, String receivableType, String receivableSn, String paymentType, String paymentSn, String bigSn, String remarks, String rtktRemarks, Integer orderstatus, Set<AviationFlightInfo> aviationFlightInfos, Set<AviationPassengerInfo> aviationPassengerInfos) {
         this.orderSn = orderSn;
         this.orderType = orderType;
         this.prn = prn;
@@ -218,6 +231,8 @@ public class AviationOrder
         this.remarks = remarks;
         this.rtktRemarks = rtktRemarks;
         this.orderstatus = orderstatus;
+        this.aviationFlightInfos = aviationFlightInfos;
+        this.aviationPassengerInfos = aviationPassengerInfos;
     }
 
     @Column(name = "order_sn", length = 200,nullable = true)
@@ -479,5 +494,24 @@ public class AviationOrder
 
     public void setOrderstatus(Integer orderstatus) {
         this.orderstatus = orderstatus;
+    }
+
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "aviationOrder")
+    public Set<AviationFlightInfo> getAviationFlightInfos() {
+        return aviationFlightInfos;
+    }
+
+    public void setAviationFlightInfos(Set<AviationFlightInfo> aviationFlightInfos) {
+        this.aviationFlightInfos = aviationFlightInfos;
+    }
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "aviationOrder")
+    public Set<AviationPassengerInfo> getAviationPassengerInfos() {
+        return aviationPassengerInfos;
+    }
+
+    public void setAviationPassengerInfos(Set<AviationPassengerInfo> aviationPassengerInfos) {
+        this.aviationPassengerInfos = aviationPassengerInfos;
     }
 }
