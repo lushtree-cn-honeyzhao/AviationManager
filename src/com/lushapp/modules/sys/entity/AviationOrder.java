@@ -193,6 +193,18 @@ public class AviationOrder
 
 
     /**
+     * @Transient 航空公司［航班信息-承运人］
+     * eg.  CA,CA
+     */
+    private String flightInfoCarrier;
+
+    /**
+     * @Transient 乘客人名［乘客信息－乘客姓名］
+     */
+    private String passengerInfoPassengerName;
+
+
+    /**
      * ------------get()and set() methods ------------------
      */
 
@@ -513,5 +525,30 @@ public class AviationOrder
 
     public void setAviationPassengerInfos(Set<AviationPassengerInfo> aviationPassengerInfos) {
         this.aviationPassengerInfos = aviationPassengerInfos;
+    }
+
+
+    @Transient
+    public String getFlightInfoCarrier() {
+        //将set FlightInfos 中的承运人 转化成字符串
+
+
+        return flightInfoCarrier;
+    }
+
+    public void setFlightInfoCarrier(String flightInfoCarrier) {
+        this.flightInfoCarrier = flightInfoCarrier;
+    }
+
+    @Transient
+    public String getPassengerInfoPassengerName() {
+        //将set passengerInfos 中的 乘客姓名 转化成字符串
+
+
+        return passengerInfoPassengerName;
+    }
+
+    public void setPassengerInfoPassengerName(String passengerInfoPassengerName) {
+        this.passengerInfoPassengerName = passengerInfoPassengerName;
     }
 }
