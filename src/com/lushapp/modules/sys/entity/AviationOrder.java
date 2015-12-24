@@ -13,6 +13,7 @@ import com.lushapp.common.orm.entity.BaseEntity;
 import com.lushapp.modules.sys._enum.FareMatch;
 import com.lushapp.modules.sys._enum.OrderStatus;
 import com.lushapp.modules.sys._enum.OrderType;
+import org.apache.commons.lang3.StringUtils;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.DynamicInsert;
@@ -531,8 +532,7 @@ public class AviationOrder
     @Transient
     public String getFlightInfoCarrier() {
         //将set FlightInfos 中的承运人 转化成字符串
-
-
+        flightInfoCarrier = StringUtils.join(this.getAviationFlightInfos(), ","); // 根据不同切割符返回字符串
         return flightInfoCarrier;
     }
 
@@ -543,8 +543,7 @@ public class AviationOrder
     @Transient
     public String getPassengerInfoPassengerName() {
         //将set passengerInfos 中的 乘客姓名 转化成字符串
-
-
+        passengerInfoPassengerName = StringUtils.join(this.getAviationPassengerInfos(),",");
         return passengerInfoPassengerName;
     }
 
