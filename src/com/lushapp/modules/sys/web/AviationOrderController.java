@@ -62,7 +62,7 @@ public class AviationOrderController extends BaseController<AviationOrder,Long> 
 
     @RequestMapping(value = {""})
     public String list() {
-        return "modules/sys/user";
+        return "modules/sys/aviationorder";
     }
 
     /**
