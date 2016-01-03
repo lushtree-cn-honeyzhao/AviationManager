@@ -10,14 +10,7 @@
  *============================ 
  */
 
-1) aviation_prd.bak 为机票销售管理系统 数据库的备份文件
-
-2)建议存放备份地址：D:\SqlServerDabatase\aviation_prd.bak
-
-3)建议 "附加数据库 "数据库物理地址:
-  D:\SqlServerDabatase\aviation_prd.ndf
-  D:\SqlServerDabatase\aviation_prd_log.ldf
-
+1) aviation_prd.sql 为机票销售管理系统 数据库的备份文件
 
 用户admin 默认密码 admin123
 
