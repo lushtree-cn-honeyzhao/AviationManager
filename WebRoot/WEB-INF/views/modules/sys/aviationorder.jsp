@@ -32,7 +32,7 @@ $(function() {
 		idField : 'id',
         frozenColumns:[[
             {field:'ck',checkbox:true},
-            {field:'cardSn',title:'未处理订单',width:200,formatter:function(value,rowData,rowIndex){
+            {field:'ID',title:'ID',width:200,formatter:function(value,rowData,rowIndex){
                 var html = $.formatString("<span style='color:{0}'>{1}</span>",rowData.color,value);
                 return html;
             }}
@@ -41,10 +41,13 @@ $(function() {
               {field:'id',title:'主键',hidden:true,sortable:true,align:'right',width:80},
               {field:'orderSn',title:'编号',width:60 },
               {field:'createTime',title:'创建时间',width:120 },
-              {field:'cardIdnumber',title:'航空公司',width:150 },
-              {field:'cardBalance',title:'余额(元)',width:120 },
-              {field:'cardCoverbalance',title:'备付金余额(元)',width:120 },
-              {field:'cardProvisionsIntegral',title:'备付金积分',width:120 },
+              {field:'flightInfoCarrier',title:'航空公司',width:150 },
+              {field:'passengerInfoPassengerName',title:'乘客',width:120 },
+              {field:'flightInfoNumber',title:'机票号',width:120 },
+              {field:'customReceivable',title:'应收',width:120 },//客户应收
+              {field:'customReceivable',title:'毛利',width:120 },//毛利＝客户应收－平台应收
+              {field:'custom',title:'客户',width:120 },
+              {field:'pnr',title:'PNR',width:120 },
               {field:'cardIntegral',title:'积分',width:120 },
               {field:'statusView',title:'状态',width:120 },
               {field:'operater',title:'操作',width:260,formatter:function(value,rowData,rowIndex){

@@ -21,8 +21,7 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * 机票销售订单AviationOrder.
@@ -54,9 +53,9 @@ public class AviationOrder
      */
     private Integer orderType = OrderType.domestic.getValue();
     /**
-     * PRN
+     * PNR
      */
-    private String prn;
+    private String pnr;
     /**
      * 外开(1) 自开(2)
      */
@@ -200,6 +199,11 @@ public class AviationOrder
     private String flightInfoCarrier;
 
     /**
+     * @Transient 机票号 ［航班信息－航班号］
+     */
+    private String flightInfoNumber;
+
+    /**
      * @Transient 乘客人名［乘客信息－乘客姓名］
      */
     private String passengerInfoPassengerName;
@@ -214,10 +218,10 @@ public class AviationOrder
 
     }
 
-    public AviationOrder(String orderSn, Integer orderType, String prn, Integer fareMatch, String custom, String supplier, Float grownFaceAmount, Float grownInlandRevenue, Float grownQTax, Float grownAgencyFee, Float grownReturnFee, Float childFaceAmount, Float childInlandRevenue, Float childQTax, Float childAgencyFee, Float childReturnFee, Float handlingCharges, Float customReceivable, Float customRealReceivable, Float platformReceivable, Float platformRealReceivable, String receivableType, String receivableSn, String paymentType, String paymentSn, String bigSn, String remarks, String rtktRemarks, Integer orderstatus, Set<AviationFlightInfo> aviationFlightInfos, Set<AviationPassengerInfo> aviationPassengerInfos) {
+    public AviationOrder(String orderSn, Integer orderType, String pnr, Integer fareMatch, String custom, String supplier, Float grownFaceAmount, Float grownInlandRevenue, Float grownQTax, Float grownAgencyFee, Float grownReturnFee, Float childFaceAmount, Float childInlandRevenue, Float childQTax, Float childAgencyFee, Float childReturnFee, Float handlingCharges, Float customReceivable, Float customRealReceivable, Float platformReceivable, Float platformRealReceivable, String receivableType, String receivableSn, String paymentType, String paymentSn, String bigSn, String remarks, String rtktRemarks, Integer orderstatus, Set<AviationFlightInfo> aviationFlightInfos, Set<AviationPassengerInfo> aviationPassengerInfos) {
         this.orderSn = orderSn;
         this.orderType = orderType;
-        this.prn = prn;
+        this.pnr = pnr;
         this.fareMatch = fareMatch;
         this.custom = custom;
         this.supplier = supplier;
@@ -266,13 +270,13 @@ public class AviationOrder
         this.orderType = orderType;
     }
 
-    @Column(name = "prn",nullable = true,columnDefinition = "text(2000)")
-    public String getPrn() {
-        return prn;
+    @Column(name = "pnr",nullable = true,columnDefinition = "text(2000)")
+    public String getPnr() {
+        return pnr;
     }
 
-    public void setPrn(String prn) {
-        this.prn = prn;
+    public void setPnr(String pnr) {
+        this.pnr = pnr;
     }
     @Column(name = "fare_match",nullable = true)
     public Integer getFareMatch() {
@@ -531,8 +535,14 @@ public class AviationOrder
 
     @Transient
     public String getFlightInfoCarrier() {
+        List<String> carrierArray = new ArrayList<String>();
+        for(Iterator<AviationFlightInfo> iterator = this.getAviationFlightInfos().iterator();iterator.hasNext();){
+            AviationFlightInfo aviationFlightInfo = iterator.next();
+            carrierArray.add(aviationFlightInfo.getCarrier());
+        }
         //将set FlightInfos 中的承运人 转化成字符串
-        flightInfoCarrier = StringUtils.join(this.getAviationFlightInfos(), ","); // 根据不同切割符返回字符串
+        flightInfoCarrier = StringUtils.join(carrierArray, ",");
+
         return flightInfoCarrier;
     }
 
@@ -541,13 +551,37 @@ public class AviationOrder
     }
 
     @Transient
+    public String getFlightInfoNumber() {
+        List<String> numberArray = new ArrayList<String>();
+        for(Iterator<AviationFlightInfo> iterator = this.getAviationFlightInfos().iterator();iterator.hasNext();){
+            AviationFlightInfo aviationFlightInfo = iterator.next();
+            numberArray.add(aviationFlightInfo.getNumber());
+        }
+        flightInfoNumber = StringUtils.join(numberArray, ",");
+
+        return flightInfoNumber;
+    }
+
+    public void setFlightInfoNumber(String flightInfoNumber) {
+        this.flightInfoNumber = flightInfoNumber;
+    }
+
+    @Transient
     public String getPassengerInfoPassengerName() {
+        List<String> passengerNameArray = new ArrayList<String>();
+        for(Iterator<AviationPassengerInfo> iterator = this.getAviationPassengerInfos().iterator();iterator.hasNext();){
+            AviationPassengerInfo aviationPassengerInfo = iterator.next();
+            passengerNameArray.add(aviationPassengerInfo.getPassengerName());
+        }
         //将set passengerInfos 中的 乘客姓名 转化成字符串
-        passengerInfoPassengerName = StringUtils.join(this.getAviationPassengerInfos(),",");
+        passengerInfoPassengerName = StringUtils.join(passengerNameArray,",");
+
         return passengerInfoPassengerName;
     }
 
     public void setPassengerInfoPassengerName(String passengerInfoPassengerName) {
         this.passengerInfoPassengerName = passengerInfoPassengerName;
     }
+
+
 }
