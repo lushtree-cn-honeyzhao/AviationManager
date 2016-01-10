@@ -191,6 +191,13 @@ public class AviationOrder
      */
     private Set<AviationPassengerInfo> aviationPassengerInfos = new HashSet<AviationPassengerInfo>();
 
+    /**
+     * 锁定人
+     */
+    private String lockUser;
+
+
+
 
     /**
      * @Transient 航空公司［航班信息-承运人］
@@ -207,6 +214,16 @@ public class AviationOrder
      * @Transient 乘客人名［乘客信息－乘客姓名］
      */
     private String passengerInfoPassengerName;
+
+    /**
+     * @Transient  出票方式
+     */
+    private String drawType;
+
+    /**
+     * @Transient 出票平台
+     */
+    private String drawPlatform;
 
 
     /**
@@ -531,6 +548,14 @@ public class AviationOrder
     public void setAviationPassengerInfos(Set<AviationPassengerInfo> aviationPassengerInfos) {
         this.aviationPassengerInfos = aviationPassengerInfos;
     }
+    @Column(name = "lock_user",nullable = true)
+    public String getLockUser() {
+        return lockUser;
+    }
+
+    public void setLockUser(String lockUser) {
+        this.lockUser = lockUser;
+    }
 
 
     @Transient
@@ -583,5 +608,21 @@ public class AviationOrder
         this.passengerInfoPassengerName = passengerInfoPassengerName;
     }
 
+    @Transient
+    public String getDrawType() {
+        return drawType;
+    }
 
+    public void setDrawType(String drawType) {
+        this.drawType = drawType;
+    }
+
+    @Transient
+    public String getDrawPlatform() {
+        return drawPlatform;
+    }
+
+    public void setDrawPlatform(String drawPlatform) {
+        this.drawPlatform = drawPlatform;
+    }
 }

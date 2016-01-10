@@ -48,7 +48,9 @@ $(function() {
               {field:'customReceivable',title:'毛利',width:120 },//毛利＝客户应收－平台应收
               {field:'custom',title:'客户',width:120 },
               {field:'pnr',title:'PNR',width:120 },
-              {field:'cardIntegral',title:'积分',width:120 },
+              {field:'createUser',title:'建单人',width:120 },
+			  {field:'createUser',title:'-建单部门-',width:120 },
+			  {field:'createUser',title:'出票方式',width:120 },
               {field:'statusView',title:'状态',width:120 },
               {field:'operater',title:'操作',width:260,formatter:function(value,rowData,rowIndex){
             	  var url = $.formatString('${ctx}/sys/aviationorder/_view?id={0}',rowData.id);
