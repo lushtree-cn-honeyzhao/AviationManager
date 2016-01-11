@@ -55,7 +55,7 @@ public class AviationOrderController extends BaseController<AviationOrder,Long> 
 
     @RequestMapping(value = {""})
     public String list() {
-        return "modules/sys/aviationOrder";
+        return "modules/sys/aviationorder";
     }
 
     /**
@@ -65,7 +65,7 @@ public class AviationOrderController extends BaseController<AviationOrder,Long> 
      */
     @RequestMapping(value = {"input"})
     public String input(@ModelAttribute("model") User user) throws Exception {
-        return "modules/sys/aviationOrder-input";
+        return "modules/sys/aviationorder-input";
     }
 
 

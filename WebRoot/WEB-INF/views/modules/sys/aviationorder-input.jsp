@@ -35,7 +35,7 @@ function loadColor(){
             var html = '<span style="color:' + row[opts.valueField]+
                     '">' + row[opts.textField] + '</span>';
             return html;
-        },
+        } ,
         onSelect:function(record){
              $("#plateNo").css({'color':record.value});
         } ,

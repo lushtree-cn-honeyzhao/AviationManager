@@ -57,7 +57,7 @@ $(function() {
               {field:'operater',title:'操作',width:260,formatter:function(value,rowData,rowIndex){
             	  var url = $.formatString('${ctx}/sys/aviationorder/_view?id={0}',rowData.id);
          	      var operaterHtml = "<a class='easyui-linkbutton' iconCls='icon-add'  " +
-                          "onclick='view("+rowIndex+");' >查看</a>"
+                           "onclick='view("+rowIndex+");' >查看</a>"
                   +"&nbsp;<a class='easyui-linkbutton' iconCls='icon-edit'  href='#' " +
                           "onclick='edit("+rowIndex+");' >编辑</a>"
                   +"&nbsp;<a class='easyui-linkbutton' iconCls='icon-remove'  href='#' " +
