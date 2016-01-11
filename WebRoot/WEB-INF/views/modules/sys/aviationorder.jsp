@@ -50,8 +50,10 @@ $(function() {
               {field:'pnr',title:'PNR',width:120 },
               {field:'createUser',title:'建单人',width:120 },
 			  {field:'createUser',title:'-建单部门-',width:120 },
-			  {field:'createUser',title:'出票方式',width:120 },
-              {field:'statusView',title:'状态',width:120 },
+			  {field:'drawType',title:'出票方式',width:120 },
+              {field:'drawPlatform',title:'出票部门',width:120 },
+              {field:'lockUser',title:'锁定人',width:120 },
+              {field:'orderstatusView',title:'订单状态',width:120 },
               {field:'operater',title:'操作',width:260,formatter:function(value,rowData,rowIndex){
             	  var url = $.formatString('${ctx}/sys/aviationorder/_view?id={0}',rowData.id);
          	      var operaterHtml = "<a class='easyui-linkbutton' iconCls='icon-add'  " +
