@@ -18,7 +18,7 @@ $(function() {
 	aviationorder_search_form = $('#aviationorder_search_form').form();
     //数据列表
     aviationorder_datagrid = $('#aviationorder_datagrid').datagrid({  
-	    url:'${ctx}/sys/aviationorder/datagrid',
+	    url:'${ctx}/sys/aviationOrder/datagrid',
         fit:true,
 	    pagination:true,//底部分页
 	    rownumbers:true,//显示行数
@@ -38,24 +38,24 @@ $(function() {
             }}
         ]],
         columns:[[
-              {field:'id',title:'主键',hidden:true,sortable:true,align:'right',width:80},
+              {field:'id',title:'主键',hidden:true,sortable:true,align:'right',width:40},
               {field:'orderSn',title:'编号',width:60 },
-              {field:'createTime',title:'创建时间',width:120 },
-              {field:'flightInfoCarrier',title:'航空公司',width:150 },
-              {field:'passengerInfoPassengerName',title:'乘客',width:120 },
-              {field:'flightInfoNumber',title:'机票号',width:120 },
-              {field:'customReceivable',title:'应收',width:120 },//客户应收
-              {field:'customReceivable',title:'毛利',width:120 },//毛利＝客户应收－平台应收
-              {field:'custom',title:'客户',width:120 },
-              {field:'pnr',title:'PNR',width:120 },
-              {field:'createUser',title:'建单人',width:120 },
-			  {field:'createUser',title:'-建单部门-',width:120 },
-			  {field:'drawType',title:'出票方式',width:120 },
-              {field:'drawPlatform',title:'出票部门',width:120 },
-              {field:'lockUser',title:'锁定人',width:120 },
-              {field:'orderstatusView',title:'订单状态',width:120 },
-              {field:'operater',title:'操作',width:260,formatter:function(value,rowData,rowIndex){
-            	  var url = $.formatString('${ctx}/sys/aviationorder/_view?id={0}',rowData.id);
+              {field:'createTime',title:'创建时间',width:60 },
+              {field:'flightInfoCarrier',title:'航空公司',width:100 },
+              {field:'passengerInfoPassengerName',title:'乘客',width:60 },
+              {field:'flightInfoNumber',title:'机票号',width:60 },
+              {field:'customReceivable',title:'应收',width:60 },//客户应收
+              {field:'customReceivable',title:'毛利',width:60 },//毛利＝客户应收－平台应收
+              {field:'custom',title:'客户',width:60 },
+              {field:'pnr',title:'PNR',width:60 },
+              {field:'createUser',title:'建单人',width:60 },
+			  {field:'createUser',title:'-建单部门-',width:100 },
+			  {field:'drawType',title:'出票方式',width:60 },
+              {field:'drawPlatform',title:'出票部门',width:60 },
+              {field:'lockUser',title:'锁定人',width:60 },
+              {field:'orderstatusView',title:'订单状态',width:60 },
+              {field:'operater',title:'操作',width:150,formatter:function(value,rowData,rowIndex){
+            	  var url = $.formatString('${ctx}/sys/aviationOrder/_view?id={0}',rowData.id);
          	      var operaterHtml = "<a class='easyui-linkbutton' iconCls='icon-add'  " +
                            "onclick='view("+rowIndex+");' >查看</a>"
                   +"&nbsp;<a class='easyui-linkbutton' iconCls='icon-edit'  href='#' " +
@@ -114,7 +114,7 @@ $(function() {
 
     function formInit(){
        	aviationorder_form = $('#aviationorder_form').form({
-			url: '${ctx}/sys/aviationorder/_save',
+			url: '${ctx}/sys/aviationOrder/_save',
 			onSubmit: function(param){  
 				$.messager.progress({
 					title : '提示信息！',
@@ -150,7 +150,7 @@ $(function() {
 	}
 	//显示弹出窗口 新增：row为空 编辑:row有值 
 	function showDialog(row){
-        var inputUrl = "${ctx}/sys/aviationorder/_input";
+        var inputUrl = "${ctx}/sys/aviationOrder/_input";
         if(row != undefined && row.id){
             inputUrl = inputUrl+"?id="+row.id;
         }
@@ -194,7 +194,7 @@ $(function() {
 	
 	//显示弹出窗口 新增：row为空 编辑:row有值 
 	function showDialog_view(row){
-        var inputUrl = "${ctx}/sys/aviationorder/_view";
+        var inputUrl = "${ctx}/sys/aviationOrder/_view";
         if(row != undefined && row.id){
             inputUrl = inputUrl+"?id="+row.id;
         }
@@ -305,7 +305,7 @@ $(function() {
                         ids[i] = row.id;
                     });
                     $.ajax({
-                        url:'${ctx}/sys/aviationorder/_remove',
+                        url:'${ctx}/sys/aviationOrder/_remove',
                         type:'post',
                         data: {ids:ids},
                         traditional:true,
@@ -332,7 +332,7 @@ $(function() {
 
         $.messager.confirm('确认提示！',tipMsg,function(r){
 			$.ajax({
-                url:'${ctx}/sys/aviationorder/_updateStatus',
+                url:'${ctx}/sys/aviationOrder/_updateStatus',
                 type:'post',
                 data: {id:rowIndex},
                 traditional:true,
@@ -353,65 +353,7 @@ $(function() {
 		aviationorder_datagrid.datagrid('load',$.serializeObject(aviationorder_search_form));
 	}
 		
-	//导出Excel
-	function exportExcel(){
-		$('#aviationorder_temp_iframe').attr('src','${ctx}/sys/aviationorder/exportExcel');
-	}
-	
-	function importFormInit(){
-		aviationorder_import_form = $('#aviationorder_import_form').form({
-			url: '${ctx}/sys/aviationorder/importExcel',
-			onSubmit: function(param){  
-				$.messager.progress({
-					title : '提示信息！',
-					text : '数据处理中，请稍后....'
-				});
-		        return $(this).form('validate');
-		    },
-			success: function(data){
-				$.messager.progress('close');
-				var json = $.parseJSON(data);
-				if (json.code ==1){
-					aviationorder_import_dialog.dialog('destroy');//销毁对话框 
-					aviationorder_datagrid.datagrid('reload');//重新加载列表数据
-					eu.showMsg(json.msg);//操作结果提示
-				}else {
-					eu.showAlertMsg(json.msg,'error');
-				}
-			}
-		});
-	}
-	
-	//导入
-	function importExcel(){
-		aviationorder_import_dialog = $('<div/>').dialog({//基于中心面板
-			title:'Excel导入',
-            top:20,
-			width : 500,
-			modal : true,
-			maximizable:true,
-			href : '${ctx}/sys/aviationorder/_import',
-			buttons : [ {
-				text : '保存',
-				iconCls : 'icon-save',
-				handler : function() {
-					aviationorder_import_form.submit();
-				}
-			},{
-				text : '关闭',
-				iconCls : 'icon-cancel',
-				handler : function() {
-					aviationorder_import_dialog.dialog('destroy');
-				}
-			}],
-			onClose : function() {
-                aviationorder_import_dialog.dialog('destroy');
-			},
-			onLoad:function(){
-				importFormInit();
-			}
-		}).dialog('open');
-	}
+
 </script>
 
 <%-- 隐藏iframe --%>
