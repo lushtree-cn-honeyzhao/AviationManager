@@ -59,7 +59,7 @@ $(function() {
          	      var operaterHtml = "<a class='easyui-linkbutton' iconCls='icon-add'  " +
                            "onclick='view("+rowIndex+");' >查看</a>"
                   +"&nbsp;<a class='easyui-linkbutton' iconCls='icon-edit'  href='#' " +
-                          "onclick='edit("+rowIndex+");' >编辑</a>"
+                          "onclick='edit("+rowIndex+");' >锁定/解锁</a>"
                   +"&nbsp;<a class='easyui-linkbutton' iconCls='icon-remove'  href='#' " +
                   "onclick='del("+rowIndex+");' >删除</a>";
                   if(rowData.status==0){
