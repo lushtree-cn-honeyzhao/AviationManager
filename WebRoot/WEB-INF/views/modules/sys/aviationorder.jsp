@@ -6,18 +6,18 @@
 <link rel="stylesheet" href="${ctxStatic}/js/kindeditor-4.1.10/themes/default/default.css">
 <script type="text/javascript" src="${ctxStatic}/js/kindeditor-4.1.10/kindeditor-all-min.js" charset="utf-8"></script>
 <script type="text/javascript">
-var aviationorder_datagrid;
-var aviationorder_form;
-var aviationorder_search_form;
-var aviationorder_dialog;
+var aviationOrder_datagrid;
+var aviationOrder_form;
+var aviationOrder_search_form;
+var aviationOrder_dialog;
 
-var aviationorder_import_dialog;//aviationorder导入表单弹出对话框
-var aviationorder_import_form;
+var aviationOrder_import_dialog;//aviationorder导入表单弹出对话框
+var aviationOrder_import_form;
 $(function() {
-	aviationorder_form = $('#aviationorder_form').form();
-	aviationorder_search_form = $('#aviationorder_search_form').form();
+	aviationorder_form = $('#aviationOrder_form').form();
+	aviationorder_search_form = $('#aviationOrder_search_form').form();
     //数据列表
-    aviationorder_datagrid = $('#aviationorder_datagrid').datagrid({
+    aviationOrder_datagrid = $('#aviationOrder_datagrid').datagrid({
 	    url:'${ctx}/sys/aviationOrder/datagrid',
         fit:true,
 	    pagination:true,//底部分页
@@ -99,7 +99,7 @@ $(function() {
 			e.preventDefault();
 			$(this).datagrid('unselectAll');
 			$(this).datagrid('selectRow', rowIndex);
-			$('#aviationorder_datagrid_menu').menu('show', {
+			$('#aviationOrder_datagrid_menu').menu('show', {
 				left : e.pageX,
 				top : e.pageY
 			});
@@ -113,7 +113,7 @@ $(function() {
 <script type="text/javascript">
 
     function formInit(){
-       	aviationorder_form = $('#aviationorder_form').form({
+       	aviationorder_form = $('#aviationOrder_form').form({
 			url: '${ctx}/sys/aviationOrder/_save',
 			onSubmit: function(param){  
 				$.messager.progress({
@@ -134,7 +134,7 @@ $(function() {
 				var json = $.parseJSON(data);
 				if (json.code ==1){
 					aviationorder_dialog.dialog('destroy');//销毁对话框 
-					aviationorder_datagrid.datagrid('reload');//重新加载列表数据
+					aviationOrder_datagrid.datagrid('reload');//重新加载列表数据
 					eu.showMsg(json.msg);//操作结果提示
 				}else if(json.code == 2){
 					$.messager.alert('提示信息！', json.msg, 'warning',function(){
@@ -234,17 +234,17 @@ $(function() {
     function edit(rowIndex, rowData){
         //响应双击事件
         if(rowIndex != undefined) {
-            aviationorder_datagrid.datagrid('unselectAll');
-            aviationorder_datagrid.datagrid('selectRow',rowIndex);
-            var rowData = aviationorder_datagrid.datagrid('getSelected');
-            aviationorder_datagrid.datagrid('unselectRow',rowIndex);
+            aviationOrder_datagrid.datagrid('unselectAll');
+            aviationOrder_datagrid.datagrid('selectRow',rowIndex);
+            var rowData = aviationOrder_datagrid.datagrid('getSelected');
+            aviationOrder_datagrid.datagrid('unselectRow',rowIndex);
             showDialog(rowData);
             return;
         }
 		//选中的所有行
-		var rows = aviationorder_datagrid.datagrid('getSelections');
+		var rows = aviationOrder_datagrid.datagrid('getSelections');
 		//选中的行（第一次选择的行）
-		var row = aviationorder_datagrid.datagrid('getSelected');
+		var row = aviationOrder_datagrid.datagrid('getSelected');
 		if (row){
 			if(rows.length>1){
 				row = rows[rows.length-1];
@@ -260,17 +260,17 @@ $(function() {
     function view(rowIndex, rowData){
         //响应双击事件
         if(rowIndex != undefined) {
-            aviationorder_datagrid.datagrid('unselectAll');
-            aviationorder_datagrid.datagrid('selectRow',rowIndex);
-            var rowData = aviationorder_datagrid.datagrid('getSelected');
-            aviationorder_datagrid.datagrid('unselectRow',rowIndex);
+            aviationOrder_datagrid.datagrid('unselectAll');
+            aviationOrder_datagrid.datagrid('selectRow',rowIndex);
+            var rowData = aviationOrder_datagrid.datagrid('getSelected');
+            aviationOrder_datagrid.datagrid('unselectRow',rowIndex);
             showDialog_view(rowData);
             return;
         }
 		//选中的所有行
-		var rows = aviationorder_datagrid.datagrid('getSelections');
+		var rows = aviationOrder_datagrid.datagrid('getSelections');
 		//选中的行（第一次选择的行）
-		var row = aviationorder_datagrid.datagrid('getSelected');
+		var row = aviationOrder_datagrid.datagrid('getSelected');
 		if (row){
 			if(rows.length>1){
 				row = rows[rows.length-1];
@@ -287,14 +287,14 @@ $(function() {
         var rows = new Array();
         var tipMsg =  "您确定要删除选中的所有行？";
         if(rowIndex != undefined) {
-            aviationorder_datagrid.datagrid('unselectAll');
-            aviationorder_datagrid.datagrid('selectRow',rowIndex);
-            var rowData = aviationorder_datagrid.datagrid('getSelected');
+            aviationOrder_datagrid.datagrid('unselectAll');
+            aviationOrder_datagrid.datagrid('selectRow',rowIndex);
+            var rowData = aviationOrder_datagrid.datagrid('getSelected');
             rows[0] = rowData;
-            aviationorder_datagrid.datagrid('unselectRow',rowIndex);
+            aviationOrder_datagrid.datagrid('unselectRow',rowIndex);
             tipMsg =  "您确定要删除？";
         }else{
-		    rows = aviationorder_datagrid.datagrid('getSelections');
+		    rows = aviationOrder_datagrid.datagrid('getSelections');
         }
 
 		if(rows.length >0){
@@ -312,7 +312,7 @@ $(function() {
                         dataType:'json',
                         success:function(data) {
                             if (data.code==1){
-                                aviationorder_datagrid.datagrid('load');	// reload the user data
+                                aviationOrder_datagrid.datagrid('load');	// reload the user data
                                 eu.showMsg(data.msg);//操作结果提示
                             } else {
                                 eu.showAlertMsg(data.msg,'error');
@@ -339,7 +339,7 @@ $(function() {
                 dataType:'json',
                 success:function(data) {
                     if (data.code==1){
-                        aviationorder_datagrid.datagrid('load');	// reload the user data
+                        aviationOrder_datagrid.datagrid('load');	// reload the user data
                         eu.showMsg(data.msg);//操作结果提示
                     } else {
                         eu.showAlertMsg(data.msg,'error');
@@ -350,16 +350,16 @@ $(function() {
 	}
 	//搜索
 	function search(){
-		aviationorder_datagrid.datagrid('load',$.serializeObject(aviationorder_search_form));
+		aviationOrder_datagrid.datagrid('load',$.serializeObject(aviationorder_search_form));
 	}
 		
 
 </script>
 
 <%-- 隐藏iframe --%>
-<iframe id="aviationorder_temp_iframe" style="display: none;"></iframe>
+<iframe id="aviationOrder_temp_iframe" style="display: none;"></iframe>
 <%-- 列表右键 --%>
-<div id="aviationorder_datagrid_menu" class="easyui-menu" style="width:120px;display: none;">
+<div id="aviationOrder_datagrid_menu" class="easyui-menu" style="width:120px;display: none;">
     <div onclick="showDialog();" iconCls="icon-add">新增</div>
     <div onclick="edit();" data-options="iconCls:'icon-edit'">编辑</div>
     <div onclick="del();" data-options="iconCls:'icon-remove'">删除</div>
@@ -379,6 +379,6 @@ $(function() {
     <%-- 中间部分 列表 --%>
     <div data-options="region:'center',split:false,border:false"
          style="padding: 0px; height: 100%;width:100%; overflow-y: hidden;">
-        <table id="aviationorder_datagrid"></table>
+        <table id="aviationOrder_datagrid"></table>
     </div>
 </div>
