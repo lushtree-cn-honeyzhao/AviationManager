@@ -17,7 +17,7 @@ $(function() {
 	aviationorder_form = $('#aviationorder_form').form();
 	aviationorder_search_form = $('#aviationorder_search_form').form();
     //数据列表
-    aviationorder_datagrid = $('#aviationOrder_datagrid').datagrid({
+    aviationorder_datagrid = $('#aviationorder_datagrid').datagrid({
 	    url:'${ctx}/sys/aviationOrder/datagrid',
         fit:true,
 	    pagination:true,//底部分页
