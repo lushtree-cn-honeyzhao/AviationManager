@@ -17,7 +17,7 @@ $(function() {
 	aviationorder_form = $('#aviationorder_form').form();
 	aviationorder_search_form = $('#aviationorder_search_form').form();
     //数据列表
-    aviationorder_datagrid = $('#aviationorder_datagrid').datagrid({  
+    aviationorder_datagrid = $('#aviationOrder_datagrid').datagrid({
 	    url:'${ctx}/sys/aviationorder/datagrid',
         fit:true,
 	    pagination:true,//底部分页
@@ -150,7 +150,7 @@ $(function() {
 	}
 	//显示弹出窗口 新增：row为空 编辑:row有值 
 	function showDialog(row){
-        var inputUrl = "${ctx}/sys/aviationorder/_input";
+        var inputUrl = "${ctx}/sys/aviationOrder/_input";
         if(row != undefined && row.id){
             inputUrl = inputUrl+"?id="+row.id;
         }
