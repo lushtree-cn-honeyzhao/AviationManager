@@ -59,13 +59,24 @@ public class AviationOrderController extends BaseController<AviationOrder,Long> 
     }
 
     /**
-     * @param user
+     * @param aviationOrder
      * @return
      * @throws Exception
      */
     @RequestMapping(value = {"_input"})
-    public String input(@ModelAttribute("model") User user) throws Exception {
+    public String input(@ModelAttribute("model") AviationOrder aviationOrder) throws Exception {
         return "modules/sys/aviationorder-input";
+    }
+
+    /**
+     *
+     * @param aviationOrder
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = {"_view"})
+    public String view(@ModelAttribute("model") AviationOrder aviationOrder) throws Exception {
+        return "modules/sys/aviationorder-view";
     }
 
 
