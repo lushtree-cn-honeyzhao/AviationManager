@@ -71,22 +71,22 @@ $(function() {
               }}
 		    ]],
             toolbar:[{
-                text:'新增',
+                text:'订单创建',
                 iconCls:'icon-add',
                 handler:function(){showDialog()}
             },'-',{
-                text:'编辑',
+                text:'锁定/解锁',
                 iconCls:'icon-edit',
                 handler:function(){edit()}
             },'-',{
                 text:'删除',
                 iconCls:'icon-remove',
                 handler:function(){del()}
-            },'-',{
+            }/*,'-',{
                 text:'Excel导出',
                 iconCls:'icon-edit',
                 handler:function(){exportExcel()}
-            }/* ,'-',{
+            } ,'-',{
                 text:'Excel导入',
                 iconCls:'icon-edit',
                 handler:function(){importExcel()}
@@ -361,10 +361,10 @@ $(function() {
 <%-- 列表右键 --%>
 <div id="aviationOrder_datagrid_menu" class="easyui-menu" style="width:120px;display: none;">
     <div onclick="showDialog();" iconCls="icon-add">新增</div>
-    <div onclick="edit();" data-options="iconCls:'icon-edit'">编辑</div>
+    <div onclick="edit();" data-options="iconCls:'icon-edit'">锁定/解锁</div>
     <div onclick="del();" data-options="iconCls:'icon-remove'">删除</div>
-    <div onclick="exportExcel();" data-options="iconCls:'icon-edit'">Excel导出</div>
-    <div onclick="importExcel();" data-options="iconCls:'icon-edit'">Excel导入</div>
+    <%--<div onclick="exportExcel();" data-options="iconCls:'icon-edit'">Excel导出</div>--%>
+    <%--<div onclick="importExcel();" data-options="iconCls:'icon-edit'">Excel导入</div>--%>
 </div>
 <div class="easyui-layout" fit="true" style="margin: 0px;border: 0px;overflow: hidden;width:100%;height:100%;">
     <div data-options="region:'north',title:'过滤条件',collapsed:false,split:false,border:false"
