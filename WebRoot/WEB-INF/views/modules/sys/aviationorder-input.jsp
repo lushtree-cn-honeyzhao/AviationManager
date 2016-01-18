@@ -61,6 +61,6 @@ form div {
 	    <input type="hidden"  name="id"/>
 	    <!-- 用户版本控制字段 version -->
         <input type="hidden" id="version" name="version"/>
-
+            首都发生发生的方法撒上
 	</form>
 </div>
