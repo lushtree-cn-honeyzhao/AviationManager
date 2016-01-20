@@ -55,13 +55,15 @@ form div {
     margin-bottom: 5px;
     width: 385px;
 }
+form div input[type="text"], form div input[type="password"] {
+    width: 150px;
+}
 </style>
 <div>
     <form id="aviationOrder_form" method="post" novalidate>
 	    <input type="hidden"  name="id"/>
 	    <!-- 用户版本控制字段 version -->
         <input type="hidden" id="version" name="version"/>
-
         <div>
             <label>状态:</label>
             <input type="radio" name="orderType" style="width: 20px;" value="1" /> 国际
@@ -70,55 +72,22 @@ form div {
         <div>
             <label>PNR编号:</label>
             <input id="pnr" data-options="required:true,missingMessage:'请输入PNR编号.',validType:['minLength[1]','legalInput']" name="pnr" type="text" class="easyui-validatebox" maxLength="100" >
+            <input type="button" value="解析" />
+            <input type="button" value="导入" />
         </div>
         <div>
-            <label>持有人:</label>
-            <input name="cardUser" id="cardUser" data-options="required:true,missingMessage:'请输入持有人.',validType:['minLength[1]','legalInput']" type="text" class="easyui-validatebox" maxLength="50"  />
+            <label>运价匹配:</label>
+            <input type="radio" name="fareMatch" style="width: 20px;" value="1" /> 外开
+            <input type="radio" name="fareMatch" style="width: 20px;" value="2" /> 自开
         </div>
         <div>
-            <label>身份证号码:</label>
-            <input name="cardIdnumber" id="cardIdnumber" type="text" class="easyui-validatebox" maxLength="200"  />
+            <label>客户:</label>
+            <input name="custom" id="custom" type="text" class="easyui-validatebox" maxLength="200"  />
         </div>
         <div>
-            <label>余额:</label>
-            <input name="cardBalance" id="cardBalance" type="text" class="easyui-validatebox" maxLength="100"  />
-        </div>
-        <div>
-            <label>备付金余额:</label>
-            <input name="cardCoverbalance" id="cardCoverbalance" type="text" class="easyui-validatebox" maxLength="50"  />
+            <label>出票平台:</label>
+            <input name="supplier" id="supplier" type="text" class="easyui-validatebox" maxLength="100"  />
         </div>
 
-        <div>
-            <label>积分备付金:</label>
-            <input name="cardProvisionsIntegral" id="cardProvisionsIntegral" type="text" class="easyui-validatebox" maxLength="50"  />
-        </div>
-
-        <div>
-            <label>积分:</label>
-            <input name="cardIntegral" id="cardIntegral" type="text" class="easyui-validatebox" maxLength="50"  />
-        </div>
-
-        <div>
-            <label>卡状态:</label>
-            <input name="cardStatus" id="cardStatus" type="text" class="easyui-validatebox" maxLength="50"  />
-        </div>
-
-        <div>
-            <label>限定油品:</label>
-            <input name="cardOil" id="cardOil" type="text" class="easyui-validatebox" maxLength="50"  />
-        </div>
-        <div>
-            <label>有效期:</label>
-            <input name="validityDate" id="validityDate" type="text" class="easyui-datebox" maxLength="10"  />
-        </div>
-
-        <div>
-            <label>app描述:</label>
-            <textarea name="appCardDetail" id="appCardDetail"  class="easyui-validatebox" maxLength="1000"  ></textarea>
-        </div>
-        <div>
-            <label>微信描述:</label>
-            <textarea name="wechatCardDetail" id="wechatCardDetail"  class="easyui-validatebox" maxLength="1000"  ></textarea>
-        </div>
 	</form>
 </div>
