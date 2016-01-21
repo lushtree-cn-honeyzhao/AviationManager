@@ -21,7 +21,31 @@ $(function() {
 		});
 	}, 1);
 
+    loadCustom();
+    loadSupplier();
+
 });
+
+//加载客户［采购商］
+function loadCustom(){
+    $('#custom').combobox({
+        url: '${ctx}/sys/user/sexTypeCombobox?selectType=select',
+        width: 120,
+        editable:false,
+        value:'2'
+    });
+}
+//加载平台［供应商］
+function loadSupplier(){
+    $('#supplier').combobox({
+        url: '${ctx}/sys/user/sexTypeCombobox?selectType=select',
+        width: 120,
+        editable:false,
+        value:'2'
+    });
+}
+
+
 //加载颜色
 function loadColor(){
     $('#color').combobox({
@@ -67,10 +91,12 @@ form div input[type="text"], form div input[type="password"] {
         <table>
             <tr>
                 <td>
-                    <label>状态:</label>
+                    <label>订单类型:</label>
                     <input type="radio" name="orderType" style="width: 20px;" value="1" /> 国际
                     <input type="radio" name="orderType" style="width: 20px;" value="2" /> 国内
                 </td>
+            </tr>
+            <tr>
                 <td>
                     <label>PNR编号:</label>
                     <input id="pnr" data-options="required:true,missingMessage:'请输入PNR编号.',validType:['minLength[1]','legalInput']" name="pnr" type="text" class="easyui-validatebox" maxLength="100" >
@@ -83,28 +109,16 @@ form div input[type="text"], form div input[type="password"] {
                     <input type="radio" name="fareMatch" style="width: 20px;" value="2" /> 自开
                 </td>
                 <td>
-
+                    <label>客户</label>
+                    <select name="custom" id="custom" class="easyui-validatebox" maxLength="200"  > </select>
+                </td>
+                <td>
+                    <label>出票平台:</label>
+                    <select name="supplier" id="supplier" class="easyui-validatebox" maxLength="200"  > </select>
                 </td>
 
             </tr>
+
         </table>
-        <div>
-
-        </div>
-        <div>
-
-        </div>
-        <div>
-
-        </div>
-        <div>
-            <label>客户:</label>
-            <input name="custom" id="custom" type="text" class="easyui-validatebox" maxLength="200"  />
-        </div>
-        <div>
-            <label>出票平台:</label>
-            <input name="supplier" id="supplier" type="text" class="easyui-validatebox" maxLength="100"  />
-        </div>
-
 	</form>
 </div>

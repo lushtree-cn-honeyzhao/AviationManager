@@ -6,6 +6,7 @@
 package com.lushapp.modules.sys.web;
 
 import com.google.common.collect.Lists;
+import com.lushapp.common.model.Combobox;
 import com.lushapp.common.model.Datagrid;
 import com.lushapp.common.model.Result;
 import com.lushapp.common.orm.Page;
@@ -16,9 +17,14 @@ import com.lushapp.common.utils.StringUtils;
 import com.lushapp.common.utils.collections.Collections3;
 import com.lushapp.common.utils.mapper.JsonMapper;
 import com.lushapp.common.web.springmvc.BaseController;
+import com.lushapp.modules.sys._enum.SexType;
+import com.lushapp.modules.sys.entity.AviationBuyers;
 import com.lushapp.modules.sys.entity.AviationOrder;
 import com.lushapp.modules.sys.entity.User;
+import com.lushapp.modules.sys.service.AviationBuyersManager;
 import com.lushapp.modules.sys.service.AviationOrderManager;
+import com.lushapp.modules.sys.service.AviationSuppliersManager;
+import com.lushapp.utils.SelectType;
 import org.apache.commons.lang3.ArrayUtils;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.MatchMode;
@@ -30,6 +36,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -46,6 +53,12 @@ public class AviationOrderController extends BaseController<AviationOrder,Long> 
 
     @Autowired
     private AviationOrderManager aviationOrderManager;
+
+    @Autowired
+    private AviationBuyersManager aviationBuyersManager;
+
+    @Autowired
+    private AviationSuppliersManager aviationSuppliersManager;
 
     @Override
     public EntityManager<AviationOrder, Long> getEntityManager() {
@@ -168,6 +181,66 @@ public class AviationOrderController extends BaseController<AviationOrder,Long> 
         Datagrid<AviationOrder> dg = new Datagrid<AviationOrder>(p.getTotalCount(), p.getResult());
         return dg;
     }
+
+
+    /**
+     * 客户下拉框
+     * 采购商
+     *
+     * @throws Exception
+     */
+    @RequestMapping(value = {"customCombobox"})
+    @ResponseBody
+    public List<Combobox> customCombobox(String selectType) throws Exception {
+        List<Combobox> cList = Lists.newArrayList();
+
+        //为combobox添加  "---全部---"、"---请选择---"
+        if (!StringUtils.isBlank(selectType)) {
+            SelectType s = SelectType.getSelectTypeValue(selectType);
+            if (s != null) {
+                Combobox selectCombobox = new Combobox("", s.getDescription());
+                cList.add(selectCombobox);
+            }
+        }
+        List<AviationBuyers> aviationBuyersList = new ArrayList<AviationBuyers>();
+
+        aviationBuyersList =aviationBuyersManager.findByCriteria(Restrictions.ne("status", StatusState.delete.getValue()));
+
+        for (int i = 0; i < aviationBuyersList.size(); i++) {
+            //Combobox combobox = new Combobox(aviationBuyersList[i].getValue().toString(), aviationBuyersList[i].getDescription());
+            //cList.add(combobox);
+        }
+        return cList;
+    }
+
+    /**
+     * 平台下拉框
+     *供应商
+     *
+     * @throws Exception
+     */
+    @RequestMapping(value = {"supplierCombobox"})
+    @ResponseBody
+    public List<Combobox> supplierCombobox(String selectType) throws Exception {
+        List<Combobox> cList = Lists.newArrayList();
+
+        //为combobox添加  "---全部---"、"---请选择---"
+        if (!StringUtils.isBlank(selectType)) {
+            SelectType s = SelectType.getSelectTypeValue(selectType);
+            if (s != null) {
+                Combobox selectCombobox = new Combobox("", s.getDescription());
+                cList.add(selectCombobox);
+            }
+        }
+        SexType[] _enums = SexType.values();
+        for (int i = 0; i < _enums.length; i++) {
+            Combobox combobox = new Combobox(_enums[i].getValue().toString(), _enums[i].getDescription());
+            cList.add(combobox);
+        }
+        return cList;
+    }
+
+
 
 
 }
