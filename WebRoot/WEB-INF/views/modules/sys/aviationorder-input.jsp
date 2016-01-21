@@ -64,21 +64,38 @@ form div input[type="text"], form div input[type="password"] {
 	    <input type="hidden"  name="id"/>
 	    <!-- 用户版本控制字段 version -->
         <input type="hidden" id="version" name="version"/>
+        <table>
+            <tr>
+                <td>
+                    <label>状态:</label>
+                    <input type="radio" name="orderType" style="width: 20px;" value="1" /> 国际
+                    <input type="radio" name="orderType" style="width: 20px;" value="2" /> 国内
+                </td>
+                <td>
+                    <label>PNR编号:</label>
+                    <input id="pnr" data-options="required:true,missingMessage:'请输入PNR编号.',validType:['minLength[1]','legalInput']" name="pnr" type="text" class="easyui-validatebox" maxLength="100" >
+                    <input type="button" value="解析" />
+                    <input type="button" value="导入" />
+                </td>
+                <td>
+                    <label>运价匹配:</label>
+                    <input type="radio" name="fareMatch" style="width: 20px;" value="1" /> 外开
+                    <input type="radio" name="fareMatch" style="width: 20px;" value="2" /> 自开
+                </td>
+                <td>
+
+                </td>
+
+            </tr>
+        </table>
         <div>
-            <label>状态:</label>
-            <input type="radio" name="orderType" style="width: 20px;" value="1" /> 国际
-            <input type="radio" name="orderType" style="width: 20px;" value="2" /> 国内
+
         </div>
         <div>
-            <label>PNR编号:</label>
-            <input id="pnr" data-options="required:true,missingMessage:'请输入PNR编号.',validType:['minLength[1]','legalInput']" name="pnr" type="text" class="easyui-validatebox" maxLength="100" >
-            <input type="button" value="解析" />
-            <input type="button" value="导入" />
+
         </div>
         <div>
-            <label>运价匹配:</label>
-            <input type="radio" name="fareMatch" style="width: 20px;" value="1" /> 外开
-            <input type="radio" name="fareMatch" style="width: 20px;" value="2" /> 自开
+
         </div>
         <div>
             <label>客户:</label>
