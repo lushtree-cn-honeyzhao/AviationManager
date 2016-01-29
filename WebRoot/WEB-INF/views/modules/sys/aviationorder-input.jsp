@@ -88,7 +88,7 @@ form div input[type="text"], form div input[type="password"] {
 	    <input type="hidden"  name="id"/>
 	    <!-- 用户版本控制字段 version -->
         <input type="hidden" id="version" name="version"/>
-        <table>
+        <table class="table-bordered">
             <tr>
                 <td>
                     <label>订单类型:</label>
