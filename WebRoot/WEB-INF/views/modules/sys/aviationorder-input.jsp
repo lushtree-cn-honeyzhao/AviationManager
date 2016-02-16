@@ -4,6 +4,7 @@
 <script type="text/javascript">
 var content_kindeditor;
 $(function() {
+    selectDefult();
     loadColor();
 	window.setTimeout(function() {
 		content_kindeditor = KindEditor.create('#content_kindeditor', {
@@ -43,6 +44,13 @@ function loadSupplier(){
         editable:false,
         value:'2'
     });
+}
+
+//加载默认项
+function selectDefult(){
+    if($("input[name='orderType']").val("1")){
+        $("input[name='orderType']").attr("selected",true)
+    }
 }
 
 
